@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	$(':button').on('click', function(){	//지금 상태에서 가능은 한데 <button>이 있으면 그것 역시도 포람된다.
+// 	$('input:button').on('click', function(){
+		
+// 		alert($(this).attr('value'));
+		but = $(this).attr('value');
+		console.log(but);
+
+		if(but == "empty"){
+			$('#d1').empty();
+		}else if(but == "remove"){
+			$('#d1').remove();
+		}else if(typeof but == "undefined"){
+			alert("valuer값을 찾을 수 없습니다.");
+		}
+		
+		
+		/*
+			$('input[value=empty]').on('click', function(){
+				$('#d1').empty();
+			})
+			
+			$('input[value=remove]').on('click', function(){
+				$('#d1').remove();
+			}
+		*/
+	})
+})
+</script>
+
+<style>
+#d1{
+	background: yellow;
+}
+
+p {
+	background: pink;	
+}
+</style>
+</head>
+<body>
+	<pre>
+		empty : 자식 요소들만 삭제
+		remove : 대상을 포함해서 자식요소 삭제
+	</pre>
+	<input type="button" value="empty">
+	<input type="button" value="remove">
+	<button type="button">확인</button>
+	<br><br>
+	<div id="d1">
+		<p>무궁화 꽃이 피었습니다.</p>
+		<p>다시 만날 수 있을까</p>
+		<p>우리들의 블루스</p>
+	</div>
+	
+</body>
+</html>

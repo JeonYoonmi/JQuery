@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+div{
+	height: auto;
+}
+</style>
+
+<script>
+//객체 선언
+var rect = {
+		width : 12,
+		height : 8,
+		calcArea : function() {
+// 			area = this.width*this.height;
+// 			return area
+			return this.width * this.height;
+		},
+		calcCircum : function() {
+			return (this.width + this.height) * 2;
+		}
+}	//전역객체 var는 상관없음
+	
+function proc1(){
+	//rect객페의 속성을 동적으로 추가 가능
+	rect.name = "사각형";		//객체안에 내용을 수정하지 않아도 동적으로 수정 가능하다.
+	
+	print('d1');
+	
+}
+
+function print(ele){
+	//Rect정보 출력
+	res = "사각형 정보 <br><br>";
+	if(typeof rect.name == "undefined"){
+		res += "이름 : 없음 <br>"
+	}else{
+		res += "이름 : " + rect.name + "<br>";
+	}
+	res += "가로 : " + rect.width + "<br>";
+	res += "세로 : " + rect.height + "<br>";
+	
+	area = rect.calcArea();
+	dule = rect.calcCircum();
+	
+	res += "면적 : " + area + "<br>";
+	res += "둘레 : " + dule + "<br>";
+
+	out = document.getElementById(ele);
+	out.innerHTML = res;
+}
+
+function proc2(){
+	//입력
+	wid = parseInt(prompt("가로 입력"));
+	hei = parseInt(prompt("세로 입력"));
+	//대입
+	rect.width = wid;
+	rect.height = hei;
+	
+	print('d2');
+	
+}
+
+//객체선언 - 속성과 메소드를 정의하지 않음
+//속성과 메소드는 동적으로 추가 가능하다.
+circle ={}
+
+function proc3(){
+	//속성 추가
+	circle.rad = 3;
+	
+	//메소드 추가
+	circle.calcArea = function(){
+		return this.rad * this.rad * Math.PI;
+	}
+	
+	//메소드 추가
+	circle.calcCircum = function(){
+		return 2 * Math.PI * this.rad;
+	}
+	
+	//출력
+	str = "반지름 : " + circle.rad + "<br>";
+	str += "면적 : " + circle.calcArea().toFixed(2) + "<br>";		//toFixed(원하는 소수점 자리) : 원하는 소숫점 자리까지 보여준다. 원하는 소숫점 다음 수를 반올림해서 계산
+	str += "둘레 : " + circle.calcCircum().toFixed(2) + "<br>";
+	
+	document.getElementById('d3').innerHTML = str;
+}
+</script>
+</head>
+<body>
+	<pre>
+		객체 : 속성과 메소드를 묶어서 표현
+		생성자 없이 리터럴로 생성하는 방법
+		
+		Rect객체 생성 - 
+		속성 : width, height, color, border
+		메소드 : 면적구하기, 둘레 구하기, color색 지정하기, border지정하기, color값 가져오기, border값 가져오기
+			name 지정하기, name 가져오기
+	</pre>
+	<p>name속성을 rect객체에 정의하지 않고 동적으로 추가해서 사용 가능</p>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="d1"></div>
+	
+	<pre>
+		가로, 세로를 입력하여 정보를 출력
+	</pre>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="d2"></div>
+	
+	<pre>
+		circle객체 생성
+		속성과 메소드를 동적으로 추가한다.
+		circle={}
+	</pre>
+	<input type="button" value="확인" onclick="proc3()">
+	<br><br>
+	<div id="d3"></div>
+</body>
+</html>

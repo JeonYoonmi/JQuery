@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+form{
+	width: 400px;
+	height: 450px;
+	border: 1px dotted blue;
+	margin: 20px auto;
+	padding: 10px;
+}
+
+label {
+	display: inline-block;
+	width: 100px;
+	height: 50px;
+	font-size: 1.5em;
+}
+
+select{
+	width: 180px;
+	font-size: 1.5em;
+}
+
+select[name=addr] {	/*style에서 쓸 때 속성을 쓰고 싶으면 [] 태그 이름과 [] 사이에 띄어쓰기 안됨*/
+	height: 40px;
+}
+
+select[name=flower]{
+	height: 200px;
+}
+
+#flo{
+	width: 170px;
+	vertical-align: top;	/*서로 길이가 다른것들을 배치할 때 위나 아래로 맞추기 위해서 사용*/
+}
+
+#sub {
+	height: 50px;
+	width: 80px;
+	font-size: 1.5em;
+	margin-left: 320px;
+}
+</style>
+</head>
+<body>
+	<form action="selectoption.jsp" method="post">
+		<label>이름</label>
+		<input type="text" name="name"><br>
+		
+		<label>전화번호</label>
+		<input type="text" name="tel"><br>
+		
+		<label>주소</label>
+		<select name="addr">
+			<option value="서울">서울</option>
+			<option value="부산">부산</option>
+			<option value="대구">대구</option>
+			<option value="광주">광주</option>
+			<option value="대전">대전</option>
+		</select>
+		
+		<br><br>
+		<label id="flo">좋아하는 꽃들</label>
+		<select name="flower" multiple="multiple" size="5"> <!-- multiple="multiple" : 여러개 선택할 수 있음(ctrl+클릭) => multiple이라고만 쓸 수 있음/  size="5": 화면에 5개가 보이도록 한다.-->
+			<option value="진달래">진달래</option>
+			<option value="라일락">라일락</option>
+			<option value="목련">목련</option>
+			<option value="장미">장미</option>
+			<option value="산수국">산수국</option>
+		</select>
+		
+		<br><br>
+		<input id="sub" type="submit" value="전송">
+	</form>
+</body>
+</html>

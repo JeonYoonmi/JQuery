@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Web Programming</title>
+		<style>
+			p, h1, h2 /*, img -> 이미지는 인라인 요소라 적용이 안된다*/{
+				width : 50%;/*(블럭 요소라 화면 끝까지 네모박스가 생기는데 화면에 절반까지만 옴*/
+				/*border : 2px solid green; - 꼭 필요한 것이 아니라 확인할 때에만 사용*/
+				/*margin : 20px 50px; -> 오른쪽은 자동적으로 무시*/
+				margin : 20px auto;/*auto 좌우 정렬 - block요소에서 실행 -> 테두리를 가운데로*/
+				text-align : center;/*테두리 안에 글씨를 가운데로*/
+			}
+		
+			h1{
+				background-color : yellow;
+			}
+			
+			img{
+				width : 400px; /*가로길이*/
+				hegit : 300px; /*세로길이*/
+				/*margin-left : 500px;*/
+			}
+			
+			/*sp1, sp2가 공통적으로 작용*/
+			span{
+				font-size : 2.0em;/*1.0배(8px)글씨로 맞춰줌*/
+				color : red;
+				font-style: italic;/*기울인 글씨로 만듬*/
+			}
+			
+			/*아이디 앞에는 #을 붙인다*/
+			#sp1{
+				color : green;
+				font-size : 1.2em;
+				font-weight : bold;/*긁게*/
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+		<!-- htmldml 주석 -->
+		<h1>Welcome to the Web Programming!</h1>
+				
+		<!-- <img src="../images/아메리카노.jpg"  alt="아메리카노.jpg"> :사진만 안움직임 - 인라인 요소-->
+		<p>
+		<img src="../images/아메리카노.jpg"  alt="아메리카노.jpg">
+		</p>
+		
+		<!-- 여는태그에서 id를 적어주면 이름을 부여 -->
+		<P>
+		<span id="sp1">언제든지 오셔서 질문이 있으시면 올려주세요!</span>
+		<span id="sp2">여러분을 환영합니다</span>
+		</P><!-- &lt;span> : 패드 안에서 일부만 발췌 할 때 -->
+		
+		<h2>내용</h2>
+		<p>HTML5, &nbsp;&nbsp;&nbsp; CSS, Javascript, jQuery, SQL, JSP, ...</p>
+	</body>
+</html>

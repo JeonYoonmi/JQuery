@@ -1,0 +1,174 @@
+@charset "UTF-8";
+#mainb{
+	min-width: 1700px; 
+}
+
+header, footer, nav, section, article, aside{
+	border-radius: 50px;
+	box-sizing: border-box;
+}
+
+header{
+	height: 80px;
+	background: #F8D771;
+}
+
+#bag{
+	width: 100px;
+	height: 50px;
+	margin-top: 20px;
+	margin-left: 40%;
+	float: left;
+}
+
+#main{
+	float: left;
+	margin-top: 20px;
+	margin-left: 10px;
+	font-weight: bold;
+	font-size: 2em;
+	color: #4D1E80;
+}
+
+nav{
+	height: 70px;
+	background: #CDB4DC;
+}
+
+#u1{
+	list-style-type: none;
+}
+
+.l1{
+	margin-top: 25px;
+	margin-left: 8%;
+	float: left;
+}
+
+.a1{
+	letter-spacing: 5px;
+	font-weight: bold;
+}
+
+.a1:visited, .a2:visited{
+	color: white;
+}
+
+.a1:link {
+	color: white;
+	text-decoration: none;
+}
+
+.a1:hover{
+	color: #9c84aa;
+}
+
+.a1:active {
+	color: #6d577b;
+}
+
+aside, section{
+	border-radius: 30px 30px 0px 0px;
+}
+
+#left, #right{ 
+	background: #F7ECEB;
+	height: 530px;
+	width: calc(15% - 1px);
+	float: left;
+}
+
+#left{
+	margin-right: 5px;
+}
+
+#right{
+	margin-left: 5px; 
+}
+
+.t{
+	font-weight: bold;
+	font-size: 1.5em;
+	margin-left: 5%;
+	margin-top: 30px;
+}
+
+#p1{
+	background: #DEB5B5;
+	width: 80%;
+	height: 20px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 5%;
+	border: 0.5px solid #c4bab9;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bold;
+	padding-left: 10%;
+}
+
+.a2:link {
+	color: white;
+	text-decoration: none;
+}
+
+.a2:hover {
+	color: #ac8585;
+}
+
+.a2:active {
+	color: #7c5858;
+}
+
+section{
+	width: calc(69% - 1px);
+	height: 530px;
+	float: left;
+	background: #E2E2E2;
+}
+
+article{
+	height: 530px;
+	width: 90%;
+}
+
+iframe{
+	height: 510px;
+	width: 800px;
+	border-style: none;
+	margin-left: 30%;
+	margin-top: 10px;
+}
+
+#b2{
+	clear: both;
+}
+
+#s{
+	margin-left: 15px;
+}
+
+form{
+	margin-left: 15px; 
+}
+
+#id, #pass{
+	width: 90%;	
+}
+
+footer{
+	height: 70px;
+	background: #CCCCEE;
+	margin-top: 15px;
+	padding-top: 10px;
+}
+
+.f{
+	float: left;
+	margin-left: 40%;
+}
+
+#f{
+	margin-left: 50px;
+}

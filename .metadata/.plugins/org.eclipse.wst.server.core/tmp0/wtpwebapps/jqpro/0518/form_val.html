@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	$('#btnview').on('click', function(){
+		userId = $('#user').val() +"\n";
+		gend = $('.gend:checked').val() +"\n";
+		intro = $('#intro').val() +"\n";
+		intro = intro.replace(/\r/g, "").replace(/\n/g, "<br>");	// //g : 정규식표현, 전체를 의미 => //사이에 바꾸고 싶은거 넣으면 된다.
+		work = $('#work option:selected').val() +"\n";	//선택한거에 val값만 나오게 하기 위함
+		
+		//출력
+		console.log(userId, gend, intro, work);
+		
+		res = "id = " + userId + "<br>";
+		res += "성별 : " + gend + "<br>";
+		res += "자기소개 <br> " + intro + "<br>";
+		res += "작업 : "+ work + "<br>";
+		
+		$('.out').html(res);
+		
+// 		return false;			//맨 아래에만 가능
+		event.preventDefault();	//맨 위, 맨 아래 상관없이 가능
+	})
+	
+	$('#btnchange').on('click', function(){
+// 		event.preventDefault();
+		
+		//입력 - prompt
+		vname = prompt("이름을 입력하세요");
+		
+		$('#user').val(vname);
+		
+		return false;
+	})
+	
+	$('a').on('click', function(){
+		su = prompt("수를 입력");
+		if(su < 15){
+			event.preventDefault();	// a태그의 기능을 막는다.
+		}
+	})
+})
+
+</script>
+</head>
+<body>
+	<pre>
+		&lt;button id="btnview">조사하기 &lt;/button>
+		type이 생략된 button은 submit기능을 수행한다.
+		
+		전송이 필요없는 경우는
+		 1. type="button"을 추가한다.
+		 2. 함수 안에서 return false를 마지막 문장에 추가한다.
+		 3. 함수 안에서 event.preventDefault()메소드호출 문장을 추가한다. (클릭해서 이벤트가 발생하므로 event라는 속성이 생긴다.)
+		 event.preventDefault() : 요소들의 고유 기능의 수행을 방지 한다.
+	</pre>
+	
+	클릭하면 수를 입력하고 15이상일떄만 페이지 이동한다.<br>
+	<a href="http://www.naver.com">네이버</a>
+	
+	<br><br>
+	<div id="d1">
+		<form>
+			<label for="user">이름</label>
+			<input type="text" id="user" value="korea"><br>
+			
+			<label >성별</label> 
+			<input type="radio" class="gend" name="gend" value="남자" checked >남자
+			<input type="radio" class="gend" name="gend" value="여자"  >여자<br>
+			
+			<label for="intro">소개</label> 
+			<textarea id="intro" cols="40" rows="4"></textarea> <br>
+			
+			<label for="work">직업</label>
+			<select id="work">
+				<option value="programmer">프로그래머</option>
+				<option value="progammer">프로게이머</option>
+				<option value="whitehand">백수</option>
+			</select><br>
+			
+<!-- 			<button id="btnview" type="button">조사하기 </button> -->
+			<button id="btnview">조사하기 </button>
+			<button  id="btnchange">이름변경 </button>
+		</form>
+	</div>
+	
+	<div class="out"></div>
+	
+</body>
+</html>

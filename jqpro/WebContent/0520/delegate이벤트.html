@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	$(document).delegate('.but', 'click', function(){})
+	$(document).on('click', '.but', function(){
+		a = $('<input type="button" value="확인" class="but">');
+		$(a).appendTo($('#d1'));
+	})
+	
+	$('.stop').on('click', function(){
+		$(document).undelegate('.but', 'click');
+// 		$(document).off('click', '.but');
+	})
+// 	$(document).on('click', '.stop', function(){
+// 		$(document).undelegate('.but', 'click');
+// 		$(document).off('click', '.but');
+// 	})
+})
+</script>
+
+</head>
+<body>
+	<pre>
+		bind
+		$('.but').bind('click', function(){})
+		$('.but').on('click', function(){})
+		
+		delegate
+		정적인 요소뿐만 아니라 동적으로 새롭게 생성되는 요소에도
+		같은 이벤트 핸들러가 수행된다.
+		$(document).delegate('.but', 'click', function(){})
+		$(document).on('click', '.but', function(){})
+	</pre>
+	<input type="button" value="확인" class="but">
+	<input type="button" value="중지" class="stop">
+	<br><br>
+	<div id="d1"></div>
+	
+</body>
+</html>

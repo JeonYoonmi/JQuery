@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+function proc1(){
+	
+	str = "";
+	
+	while(true){
+		
+		//수를 입력
+		su = prompt("수입력");
+		
+		if(su == 0) break;
+		
+		//입력된 수의 구구단을 출력
+		for(i=1; i<9; i++){
+			str += `${su} * ${i} = ${su * i} <br>`;
+		}
+		str += `<br>`;
+	}
+	
+	//출력
+	out = document.getElementById('d1');
+	out.innerHTML = str;
+}
+
+function proc2(){
+
+	str = "";
+	
+	while(true){
+		
+		//수를 입력
+		su = prompt("수입력");
+		
+		if(su == 0){
+			alert("0은 처리 못함 다시 입력하세요.");
+			continue;
+		}
+		
+		//입력된 수의 구구단을 출력
+		for(i=1; i<9; i++){
+			str += `${su} * ${i} = ${su * i} <br>`;
+		}
+		
+		conf = confirm("계속 하시겠습니까?");
+		
+		if(!conf) break;
+		
+		str += `<br>`;
+	}
+	
+	//출력
+	out = document.getElementById('d2');
+	out.innerHTML = str;
+}
+</script>
+
+<style>
+div{
+	height: auto;
+}
+</style>
+</head>
+<body>
+	<pre>
+		confirm() : 사용자의 답변을 처리하는 함수
+		true/false를 리턴하는 함수
+		if조건식에서 사용 된다.
+	</pre>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="d1"></div>
+	
+	<pre>
+		confirm() : 사용자의 답변을 처리하는 함수
+		true/false를 리턴하는 함수
+		if조건식에서 사용 된다.
+	</pre>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="d2"></div>
+</body>
+</html>

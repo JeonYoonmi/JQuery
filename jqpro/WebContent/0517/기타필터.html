@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	str = "";
+	$('#btnvisi').on('click', function(){
+		str = "";
+// 		str += $('#d1 p:visible').text();
+// 		$('.visi').text(str);
+		
+		$('#d1 p:visible').each(function(){
+			str += $(this).html() + "<br>";
+		})
+		
+		$('.visi').html(str);
+	})
+	
+	$('#btnhid').on('click', function(){
+		str = "";
+		$('#d1 p:hidden').each(function(){
+			str += $(this).text() + "<br>";
+		})
+		
+		$('.hid').html(str);
+	})
+	
+	$('#visib').on('click', function(){
+
+		var vattr = "";
+		var textrval = "";
+		var test ="";	//const : 값이 변하지 않을 때 사용, let : 중복해서 변수선언을 할 수 없도록 막아줌
+		$('#testForm *:visible').each(function(){
+// 			alert(this.tagName);	//dom객체 변수를 가지고 와야 하기 때문에 $기호가 붙지 않는다.
+			if(this.tagName == "INPUT") {
+				
+				vtype = $(this).attr('type');
+				if(vtype == 'radio'){
+					if($(this).prop('checked') == true){
+						vattr += this.tagName + "의 visible객체 [" + $(this).attr('name') + " : " + $(this).val() + "]<br>";
+					}
+					
+				}else{
+					vattr += this.tagName + "의 visible객체 [" + $(this).attr('name') + " : " + $(this).val() + "]<br>";
+				}
+				
+			}else if(this.tagName != "BR") {
+				text = this.tagName + " : " + $(this).text() + "<br>";
+			}
+			
+		})
+		
+		//출력
+// 		res = vattr + text;
+		res = vattr;
+		res += text;
+		
+		$('.visi2').html(res);
+		
+	})
+	
+	$('#hidb').on('click', function(){
+		var vattr = "";	//var를 붙여주면 지역변수
+		var text ="";
+		
+		$('#testForm *:hidden').each(function(){
+			if(this.tagName == "INPUT"){
+				vattr += this.tagName + " hidden객체 [" + $(this).attr('name') + " : " + $(this).val() + "]<br>";
+				
+			}else{
+				text += this.tagName + " : " + $(this).text() + "<br>";
+				
+			}	//br은 hidden에는 에초에 나오지 않기 때문에 걸러줄 필요가 없음.
+			
+		})
+		
+		//출력
+		res = vattr;
+		res += text;
+		$('.hid2').html(res);
+	})
+})
+</script>
+</head>
+<body>
+	<pre>
+		
+	</pre>
+	<input type="button" value="vissible" id="btnvisi">
+	<input type="button" value="hidden" id="btnhid">
+	<br><br>
+	<div id="d1">
+		<p> 보이는 문단</p>
+		<p style="visibility:hidden;"> 숨겨진 문단</p>
+		<p style="display:none;"> 자리를 차지 하지 못한 문단 </p>
+		<p style="opacity:0;"> 투명한 문단</p>
+	</div>
+	<div class="visi"></div>
+	<div class="hid"></div>
+	
+	<pre>
+		속성값 가져오기
+		attr('name'), attr('type') attr('id') attr('class')
+		
+		값 가져오기
+		input - val()
+		span, div, p, td, ... - text(), html()
+		
+		속성의 상태값 가져오기 - true/false를 리턴 - if에서 사용
+		prop('checked')
+		prop('selected')
+		prop('disabled')
+		prop('enabled') => 사용할 수 없음  ==> 사용 가능하다는 속성이 없고 disabled 속성에서 false이면 enabled임
+		prop('multiple')
+		prop('readonly')
+		
+	</pre>
+	
+	<input type="button" value="vissible" id="visib">
+	<input type="button" value="hidden" id="hidb">
+	<br><br>
+	<div id="d2">
+		<form id="testForm"> 
+			<input type="hidden" name="userAge" value="33">
+			<input type="hidden" name="userCity" value="대전">
+			
+			I D : <input type="text" name="userID" value="hong">  
+			<span style="display:none">ID가 중복됩니다. </span> <br> 
+			 
+			이름 : <input type="text" name="userName" value="홍길동">   
+			<span style="visibility:hidden">이름을 입력하세요</span><br> 
+			 
+			성별 : <input type="radio" name="sung" value="남" checked>남자  
+			<input type="radio" name="sung" value="여">여자  
+		</form>
+	</div>
+	<div class="visi2"></div>
+	<div class="hid2"></div>
+	
+</body>
+</html>

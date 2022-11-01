@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="Stylesheet" href="../css/public.css">
+<style>
+div{
+	border : 2px solid hotpink;
+	padding: 10px;
+	margin: 20px;
+}
+
+a{
+	margin: 10px;
+	padding: 10px;
+	font-size: 2.0em;
+}
+
+a:link{	/*처음에 만들어질 때 색*/
+	color: green;
+}
+
+a:visited{
+	color: red;
+}
+
+a:hover{	/*커서를 가져다 대면*/
+	text-decoration: none; /* underline(원래) : 밑줄이 아래에 쳐짐, overline : 밑줄이 위로 쳐짐, line-through : 맡줄이 가운대로 쳐짐*/
+	font-size: 2.5em;
+}
+
+a:active{	/*클릭할 때*/ 
+	background: yellow;
+}
+
+p:hover {
+	color: red;
+}
+
+p:active {
+	font-size : 1.5em;
+	color: blue;
+}
+
+table {
+	border: 1px solid blue;
+}
+
+td {
+	width: 300px;
+	height: 50px;
+	text-align: center;
+}
+
+#tab1 td:nth-child(2n+1){	/*tr td:nth-child(2n+1) td, tr 모두 tab1의 후손이므로  tr생략*/
+	background: #90caf9;
+}
+
+#tab1 td:nth-child(2n){
+	background: #5d99c6;
+}
+
+#tab2 tr:nth-child(2n+1){
+	background: #90caf9;
+}
+
+#tab2 tr:nth-child(2n){
+	background: #5d99c6;
+}
+
+/*
+#tab1 tr:nth-child(1), #tab2 tr:nth-child(1){
+}
+*/
+
+/*어디에 백그라운드 컬러를 줬는지에 따라서 차이가 생긴다.*/
+#tab1 tr:nth-child(1) td{
+	font-size: 2.0em;
+	background: black;
+	color: white;
+}
+
+#tab2 tr:nth-child(1){
+	font-size: 2.0em;
+	background: black;
+	color: white;
+}
+</style>
+</head>
+<body>
+	<pre>
+	 의사클래스 :
+	 상태에 따른 스타일을 지정한다.
+	 
+	 a:link : 처음 만들어졌을 때 - a태그에서만 사용
+	 a:visited : 방문하고 났을 때 - a태그에서만 사용
+	 a:hover : 마우스 올려놨을 때
+	 a:active : 마우스를 눌렀을 때(커서를 클릭할 때)
+	 
+	 p:hover
+	 p:active
+	</pre>
+	<div>
+		<a href="https://www.ddit.or.kr" target="">ddit</a> <!-- target => _self, _blank, 이름 -> 안쓰면 _self -->
+		<a href="https://plus.cnu.ac.kr" target="">충남대</a>
+		<a href="https://www.hannam.ac.kr" target="">한남대</a>
+		<br>
+		<p> 무궁화 꽃이 피었습니다.</p>
+		<p> 능소화 꽃이 피었습니다.</p>
+	</div>
+	
+	<pre>
+	의사클래스 :
+	 구조에 따른 스타일을 지정한다.
+	  nth-child(1)
+	  nth-child(2n)
+	  
+	 #tab1 td:nth-child(2n+1){
+		background: #90caf9;
+	}
+		
+	#tab1 td:nth-child(2n){
+		background: #5d99c6;
+	}
+	</pre>
+	<div>
+		<table id="tab1" border="1">
+			<tr>
+				<td>이름</td>
+				<td>주소</td>
+				<td>전화번호</td>
+				<td>이메일</td>
+				<td>생일</td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+		
+	<pre>
+	</pre>
+	<div>
+		<table id="tab2" border="1">
+			<tr>
+				<td>이름</td>
+				<td>주소</td>
+				<td>전화번호</td>
+				<td>이메일</td>
+				<td>생일</td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

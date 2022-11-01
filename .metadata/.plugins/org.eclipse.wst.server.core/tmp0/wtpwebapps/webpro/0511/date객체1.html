@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+#d3{
+	font-size: 1.5em;
+}
+</style>
+<script>
+
+today1 = new Date();
+	
+function proc1(){
+	today2 = new Date(100000);
+	today3 = new Date("2022.5.11 9:34");
+	today4 = new Date(2022, 4, 11, 9, 34);	//1월 부터 시작하니까 0이라고 입력한 것이 1월, 그러므로 5월을 원하면 4를 입력하면 된다.
+	
+	today1 = today1.toLocaleString();
+	today2 = today2.toLocaleString();
+	today3 = today3.toLocaleString();
+	today4 = today4.toLocaleString();
+	
+	res = today1 + "<br>" + today2 + "<br>" + today3 + "<br>" + today4 + "<br>"
+	
+	document.getElementById('d1').innerHTML = res;
+}
+
+function proc2(){
+	day = today1.getDay();
+	
+	switch(day){
+	case 0:
+		str = "일요일";
+		break;
+	case 1:
+		str = "월요일";
+		break;
+	case 2:
+		str = "화요일";
+		break;
+	case 3:
+		str = "수요일";
+		break;
+	case 4:
+		str = "목요일";
+		break;
+	case 5:
+		str = "금요일";
+		break;
+	case 6:
+		str = "토요일";
+		break;
+	}
+	
+	
+	res = "오늘은 " + today1.toLocaleString() + "<br>";
+	res += str + "입니다.";
+	
+	document.getElementById('d2').innerHTML = res;
+}
+
+function proc3(){
+	arr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+	
+	window.setInterval(function(){
+		today = new Date();
+		
+		a = today.getDay();
+		day = arr[a];
+		
+		res = "오늘은 " + today.toLocaleString() + "<br>";
+		res += day + "입니다.";
+		
+		document.getElementById('d3').innerHTML = res;
+	}, 1000);
+	
+}
+</script>
+</head>
+<body>
+	<pre>
+		today1 = new Date();
+		today2 = new Date(100000);
+		today3 = new Date("2022.5.11 9:34");
+		today4 = new Date(2022, 4, 11, 9, 34);
+	</pre>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="d1"></div>
+	
+	<pre>
+		요일 구하기
+		getDay() - 0부터 6의 값을 리턴한다.
+	</pre>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="d2"></div>
+	
+	<pre>
+		getDay() - 0부터 6의 값을 리턴한다.
+		switch case 이용
+		배열을 이용해서 arr = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+	</pre>
+	<input type="button" value="확인" onclick="proc3()">
+	<br><br>
+	<div id="d3"></div>
+	
+</body>
+</html>

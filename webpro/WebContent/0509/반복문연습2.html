@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+	proc1 = () => {
+		str1 = "";
+		str2 = "";
+		
+		while(true){
+			num1 = parseInt(prompt("첫번 째 숫자"));
+			num2 = parseInt(prompt("두번 째 숫자"));
+			
+			
+			//비교 - 연산 - 출력내용
+			if(num1 == 0 && num2 == 0) break;
+			
+			if(num1 + num2 >= 100){
+				str1 += num1 + ", " + num2 + "<br>"; 
+			}else{
+				str2 += num1 + ", " + num2 + "<br>"; 
+			}
+		}
+		
+		out = document.getElementById('d1');
+		out.innerHTML = "두 수의 합이 100 미만일 때 : <br>" + str1 + "<br>";
+		out.innerHTML += "두 수의 합이 100 이상일 때 : <br>" + str2;
+	}
+	
+	proc2 = () => {
+		str = "";
+		for(i=1; i<=100; i++){
+			if(i%2 == 0 && i%3 == 0){
+			str += i + " ";
+			}
+		}
+		
+		out = document.getElementById('d2');
+		out.innerHTML = str;
+	}
+	
+</script>
+</head>
+<body>
+	<pre>
+		두 수를 입력(prompt) 두 수의 합이 100이상일 때와 100미만일 때를 구분해서 입력받은 두 수와 함께 출력
+		두 수 모두 0이 입력되면 종료
+	</pre>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="d1"></div>
+	
+	<pre>
+		1~100까지 중 2의 배수이면서 3의 배수인 것만 출력
+	</pre>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="d2"></div>
+	
+</body>
+</html>

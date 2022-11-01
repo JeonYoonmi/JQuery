@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+table{
+	border: 2px solid blue;
+	margin: 20px auto;
+	
+/* 	border-collapse: collapse; => 테두리가 하나로 합쳐짐 */
+	border-spacing: 20px; /* border-collapse: collapse;를 하면 불가능 */
+	
+	empty-cells: hide; /* empty-cells : show(기본설정), hide */
+}
+
+td{
+	width: 200px;
+	height: 50px;
+	text-align: center;
+}
+
+tr:nth-child(2n+1) {
+	background: lightgreen;
+}
+
+.od{	/* 클래스를 이용해서 해도 되고 nth-child(2n+1) 해도 된다. */
+	background: lightgray;
+}
+
+tr:nth-child(1) {
+	background: blue;
+	color: white;
+	font-size: 2.0em;
+}
+</style>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<td>이름</td>
+			<td>주소</td>
+			<td>전화번호</td>
+		</tr>	
+			
+		<tr class="od">
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>		
+		
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>		
+		
+		<tr class="od">
+			<td>3</td>
+			<td>3</td>
+			<td></td>
+		</tr>		
+		
+		<tr>
+			<td>1</td>
+			<td>2</td>
+			<td>3</td>
+		</tr>		
+	</table>
+</body>
+</html>

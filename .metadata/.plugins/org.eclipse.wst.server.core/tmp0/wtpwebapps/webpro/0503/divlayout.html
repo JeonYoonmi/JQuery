@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+body{
+	min-width: 1000px;
+}
+#header{
+/* 	width: 305px; */
+ 	height: 50px; 
+	background: yellow;
+	border-radius: 10px;
+	margin: 2.5px;
+	text-align: center;
+}
+
+#nav{
+	width: 29%;
+	height: 200px;
+	background: red;
+	border-radius: 10px;
+	margin: 2.5px;
+	float: left;
+}
+
+#content{
+	width: 69%;
+	height: 200px;
+	background: green;
+	border-radius: 10px;
+	margin: 2.5px;
+ 	float: left; /* nav와 같은 블럭요소이기 때문에 왼쪽으로 붙으려는 속성으로 인해서 겹치게 된다. */
+}
+
+#footer{
+	clear: both;
+/* 	width: 305px; */
+ 	height: 50px; 
+	background: pink;
+	border-radius: 10px;
+	margin: 2.5px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<div id="header">"header"</div>
+	<div id="nav">  "nav"</div>
+	<div id="content">  "content"</div>
+	<div id="footer">"footer"</div>
+</body>
+</html>

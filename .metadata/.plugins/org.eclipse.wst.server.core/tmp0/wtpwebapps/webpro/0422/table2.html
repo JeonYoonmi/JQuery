@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<!-- 외부에 저장되어있는 css 파일을 이용하기 위한 방법-->
+		<link rel="stylesheet" href="../css/public.css">
+		<style>
+			pre{
+				background-color: lightgray; /*이렇게 설정하면 외부스타일에 있는 것은 무시한다.*//*인라인 스타일은 권장하지 않는다. 하지만 인라인에 설정하면 인라인에 있는 것 외에는 무시*/
+			}
+			table {
+				border : 3px solid blue;
+				margin : 50px auto;
+				/*위,아래 50, 좌우 30*/
+				/*border-width: 3px;
+				border-style: solid;
+				border-color: blue;*/
+				
+			}
+		
+			th{/*td보다 글씨가 더 진함. width는 안줘도 됨 => 길이는 공유한다. 근데 위치는 어디든 ㄱㅊ*/
+				height: 60px;
+				font-size: 1.5em; 
+				/*background-color: ;
+				background-image: ;
+				background-position: ;
+				background-size: ;
+				background-repeat: ; => background*/
+				background: black; /*-color를 쓰지 않아도 색은 설정 가능.*/
+				color: white;
+			}
+			td{
+				width: 200px;
+				height: 50px;
+				text-align: center;
+			}
+			
+			#title{
+				width: 500px;
+			}
+			
+			#tab2{
+				border : 10px outset green;
+				border-collapse: collapse; /*separate(기본), collapse(보더끼리 합치기)*/
+			}
+			
+			#tab2 th{
+				background: blue;
+			}
+			
+			#tab3{
+				border-spacing: 50px; /*border-collapse: collapse;가 되어있을 경우에는 사용이 불가능하다.*/
+			}
+		</style>
+	</head>
+	
+<body>
+<!-- 혹시 f5가 안눌린다면 shift+f5를 눌러 강력 새로고침을 해야한다 => 사이트가 캐시를 저장해두는데 그거로 해서 그럼 -->
+	<pre style="background-color: skyblue"><!-- 인리인 스타일 -->
+	table {
+			border : 3px solid blue;
+			margin : 50px auto;
+	}
+	
+	td{
+		width: 200px;
+		height: 50px;
+		text-align: center;
+	}
+	
+	#title{
+		width: 500px;
+	}
+	</pre>
+	<table border="1">
+		<tr>
+			<th>영화제목</th>
+			<th>개봉연도</th>
+			<th>감독</th>
+			<th>평가</th>
+		</tr>
+		
+		<tr>
+		<td id="title">기생충</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
+		
+		<tr>
+		<td>미나리</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
+		
+		<tr>
+		<td>백두산</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
+		
+		<tr>
+		<td>괴물</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
+	</table>
+	
+	<pre>
+	#tab2{
+		border-collapse: collapse; /*separate(기본), collapse(보더끼리 합치기)*/
+	}
+	</pre>
+	<table id="tab2" border="1">
+		<tr>
+			<th>영화제목</th>
+			<th>개봉연도</th>
+			<th>감독</th>
+			<th>평가</th>
+		</tr>
+		
+		<tr>
+		<td id="title">기생충</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
+		
+		<tr>
+		<td>미나리</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
+		
+		<tr>
+		<td>백두산</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
+		
+		<tr>
+		<td>괴물</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
+	</table>
+	
+	<pre>
+	#tab3{
+		border-spacing: 50px; /*border-collapse: collapse;가 되어있을 경우에는 사용이 불가능하다.*/
+	}
+	</pre>
+	<table id="tab3" border="1">
+		<tr>
+			<th>영화제목</th>
+			<th>개봉연도</th>
+			<th>감독</th>
+			<th>평가</th>
+		</tr>
+		
+		<tr>
+		<td>기생충</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
+		
+		<tr>
+		<td>미나리</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
+		
+		<tr>
+		<td>백두산</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
+		
+		<tr>
+		<td>괴물</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		</tr>
+	</table>
+</body>
+</html>

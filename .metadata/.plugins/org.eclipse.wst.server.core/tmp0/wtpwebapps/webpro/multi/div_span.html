@@ -1,0 +1,137 @@
+<html>
+  <meta charset = "UTF-8">
+  
+  <link rel = "stylesheet" href="../css/mystyle.css">
+
+  <style>
+    div.cdiv {
+	   width : 70%;
+	   height : 500px;
+	   border : 1px dotted blue;
+	   margin : 20px auto;
+	   text-align : center;
+	  /*   
+ 	   margin : 20px;
+	   margin-top : 30px;
+	   margin-bottom : 50px;
+	  */
+	}
+	div.indiv{
+	   box-sizing : border-box;
+	   width : calc(68% - 3%);
+	   margin-left : 10px;
+	   border : 1px dotted orange;
+	   height : 300px;
+	   float : left;
+	   overflow : auto;  //scroll, hidden
+	   
+	   
+	}
+	div.in1{
+	   box-sizing : border-box;
+	   width : 25%;
+	   padding-top : 15px;
+	}
+	img{
+	  width : calc(100% - 1%);
+	  height : 250px;
+	}
+	span{
+	  color : red;
+	  font-weight : bold;
+	  font-size : 1.2em;
+	}
+	span#king{
+	  background : yellow;
+	  font-style : italic;
+	  font-size : 1.5em;
+	  
+	  display : inline-block;
+	  width : 250px;
+	  height : 50px;
+	}
+  </style>
+  <body>
+    <pre>
+	  div : 큰 단락이며 섹션이다 
+	         문장들을 논리적인 단락으로 나눈다 
+			 논리적인 단락이기 때문에 화면에서 특별히
+			 나타나지 않는다 
+			 border나 background속성을 니용해서 화면에 표시한다 
+			 
+	  box-sizing : border-box;	
+           전체 크기를 줄일때 어떤 요소들의 스타일 위치 크기 
+		   들이 무너진다 
+		   그것을 방지 하기 위해서 설정하는 것이고  border size를 
+		   고려해서 전체 크기를 자동으로 재 조정한다 
+           		   
+	  width : calc(100% - 1%); 
+	       전체 크기를 줄일때  일정 요소의 크기를 재 계산 할 수있도록 
+		   설정
+		   
+	  overflow : scroll;  //scroll, hidden
+           어떤 요소의 크기보다 내용이 넘치면 처리 
+           auto : 내용이 넘치면 스크롤바가 자동으로 생성 
+           scroll : 스크롤바의 형태가 항상 생성 
+                    내용이 넘치면 스크롤바가 움직인다 
+           hidden : 넘치는 내용을 안보이게 한다 
+
+	  span : 인라인요소, 필요한 만큼만 차지. 크기 조절이 안된다 
+      display : inline, block, inline-block, none	  
+      인라인요소를 블럭요소 처럼 크기를 지정하기 위해서는 
+      display 속성을 inline-block	   
+	</pre>
+	
+    <div class="cdiv">
+	  <h1>사자</h1>
+	  <div class="indiv in1">
+	   <img src="../images/사자.jpg">
+	  </div>
+	  <div class="indiv">
+	   사자(獅子, lion)는 식육목 고양이과 표범속으로 분류되는
+	   포유동물이다. 현존하는 고양잇과 동물 중에서 호랑이에
+	   이어 두 번째로 큰 종이다. 사자는 흔히 <span>백수(百獸)의 왕</span>으로
+	   불리며, 고양잇과 동물 가운데 사자만이 무리를 지어 산다.
+	   사자무리를 ‘프라이드’라고 하는데[1] 한 마리의 수컷이 여러
+	   암컷들을 거느리고 다니는 습성으로 인하여 
+	   수사자는 동서고금 가리지 않고 <span id="king">왕권의 상징</span>으로
+	   사용되어 왔다.
+	  </div>
+	</div>
+	
+	<div class="cdiv">
+	  <h1>호랑이</h1>
+	  <div class="indiv in1">
+	   <img src="../images/호랑이.jpg">
+	  </div>
+	  <div class="indiv">
+	    호랑이(虎狼-) 또는 범은 고양이과에 속하는 맹수이다. 
+		어린 개체는 개호주라 부른다.[2] 고양이과 동물중 그 
+		크기가 가장 크며, 재규어를 제외하면 유일하게 수영을 
+		할 수 있다. (단, 재규어같은 경우에는 단지 사냥을
+		목적으로 수영을 할뿐 호랑이처럼 주기적으로 물에 
+		들어가지는 않는다). 호랑이의 크기는 아종에 따라 
+		다양한데, 발리호랑이는 대개 100kg 미만이며, 
+		아무르호랑이는 수컷의경우 최대 360kg에 이르기도 한다.
+		대개 황갈색 바탕에 검은색 줄무늬가 있다.
+		드물게 흰색을 띤 백호가 있는데, 
+		이는 백색증과 무관한 열성유전자가 발현되어 
+		나타나는 것이다. 뼈를 비롯한 신체의 거의 
+		대부분의 부위가 한약재로 쓰이고 있으며, 그로인해 
+		심각한 생존의 위협을 받고있다.
+	  </div>
+	</div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+	proc1 = () => {
+// 		var fruit = ["사과", "바나나", 123.5, "파인애플"];	//지역변수로 선언하는 경우
+		fruit = ["사과", "바나나", 123.5, "파인애플"];	//script에서 ;을 안 써도 오류가 나지 않고 작동한다. but 쓰는 것이 좋음!
+// 		document.getElementById('d1').innerHTML = fruit;
+		
+// 		print('d1');
+		print('d1', fruit);
+	}
+	
+	proc2 = () => {
+		fruit = new Array("사과", true, "복숭아", "망고", "자두");
+// 		document.getElementById('d2').innerHTML = fruit;
+		
+// 		print('d2');
+		print('d2', fruit);
+	}
+	
+	proc3 = () => {
+		fruit = new Array(5);
+		fruit[0] = "사과";
+		fruit[1] = "바나나";
+		fruit[2] = "수박";
+		fruit[3] = "토마토";
+		fruit[4] = "123";
+// 		document.getElementById('d3').innerHTML = fruit;
+
+// 		print('d3');
+		print('d3', fruit);
+	}
+	
+	//출력하는 부분이 동일하므로 메서드를 하나 만든다.
+	print = (out, fr) =>{
+// 		document.getElementById(out).innerHTML = fruit; 	//fruit 앞에 선언할 때 var를 붙이면 지역변수가 되는데 없으면 전역변수이다. => var를 붙이면 print에서 사용할 수 없다.
+		
+		str	= "";	//배열 요소를 하나 씩 꺼내서 담기
+		for(i=0; i<fr.length; i++){
+			str += fr[i] + " ";
+		}
+		document.getElementById(out).innerHTML = str;
+		
+	}
+</script>
+</head>
+<body>
+	<pre>
+		배열 : 여러개의 값을 일련의 연속적인 공간에 저장한다.
+		배열의 자료형과 상관없이 모든 데이터를 저장할 수 있다.
+		배열의 갯수는 자동으로 변경한다.
+		생성 1 : fruit = ["사과", "바나나"]
+	</pre>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="d1"></div>
+	
+	<pre>
+		배열 : 여러개의 값을 일련의 연속적인 공간에 저장한다.
+		생성 2 : fruit = new Array("사과", "바나나", "복숭아")
+	</pre>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="d2"></div>
+	
+	<pre>
+		배열 : 여러개의 값을 일련의 연속적인 공간에 저장한다.
+		생성 3 : fruit = new Array(5)
+		fruit[0] = "사과";
+		fruit[1] = "바나나";
+		fruit[2] = "바나나";
+		fruit[3] = "바나나";
+		fruit[4] = "바나나";
+	</pre>
+	<input type="button" value="확인" onclick="proc3()">
+	<br><br>
+	<div id="d3"></div>
+</body>
+</html>

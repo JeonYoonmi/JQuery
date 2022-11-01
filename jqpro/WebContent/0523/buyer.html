@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	$('input:button').on('click', function(){
+		
+		xhr = new XMLHttpRequest();
+		
+		//요청
+		xhr.open('get', 'buyer.jsp', true);
+		xhr.send();
+		
+		//응답
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				res = JSON.parse(this.responseText)//jsp에서 만들어진 json object 배열 데이터
+				
+				code = "";
+				$.each(res, function(i, v){
+					code += "<p id='" + v.id + "'>" + v.nm +"</p>";
+				})
+				$('#names').html(code);
+			}
+		}
+	})
+	
+	//원래 쓰는거는 bind방식, 새로 생성된 p태그 이므로 delegate방식으로 사용해야한다.
+// 	$(document).on('click', 'p', function(){}
+	
+	//delegate방식에서 부모를 적어줘도 가능하다.
+	$('#names').on('click', 'p', function(){
+// 		alert($(this).attr('id'));
+		idvalue = $(this).attr('id');
+		
+		//요청
+		xhr.open('get', 'buyerDetail.jsp?id=' + idvalue, true);
+		xhr.send();
+		
+		//응답
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				res = JSON.parse(this.responseText);
+				
+				code ="";
+				code += "<div class='l'> BUYER_ID : </div><div class='r'>" + res.id + "</div><br>";
+				code += "<div class='l'> BUYER_NAME : </div><div class='r'>" + res.name + "</div><br>";
+				code += "<div class='l'> BUYER_LGU : </div><div class='r'>" + res.lgu + "</div><br>";
+				code += "<div class='l'> BUYER_COMTEL : </div><div class='r'>" + res.comtel + "</div><br>";
+				code += "<div class='l'> BUYER_BANK : </div><div class='r'>" + res.bank + "</div><br>";
+				code += "<div class='l'> BUYER_BANKNO : </div><div class='r'>" + res.bno + "</div><br>";
+				code += "<div class='l'> BUYER_BANKNAME : </div><div class='r'>" + res.bname + "</div><br>";
+				code += "<div class='l'> BUYER_MAIL : </div><div class='r'>" + res.mail + "</div><br>";
+				code += "<div class='l'> BUYER_ZIP : </div><div class='r'>" + res.zip + "</div><br>";
+				code += "<div class='l'> BUYER_ADD1 : </div><div class='r'>" + res.addr1 + "</div><br>";
+				code += "<div class='l'> BUYER_ADD1 : </div><div class='r'>" + res.addr2 + "</div><br>";
+				
+				$('#detail').html(code);
+			}
+		}
+		
+	})
+	
+})
+</script>
+
+<style>
+table{
+	border: 1px solid #83b9ff;
+}
+
+th{
+ 	height: 70px;
+}
+
+td{
+	width: 300px;
+ 	height: 50px;
+	text-align: center;
+}
+
+#ttr{
+	background: #b6e3ff;
+}
+
+#detail{
+	width: 700px;
+}
+
+#names p:hover{
+	background: #82b1ff;
+}
+
+.l{
+	float: left;
+	border: none;
+}
+
+.r{
+	float: right;
+	border: none;
+}
+
+br{
+	clear: both;
+}
+</style>
+</head>
+<body>
+	<pre>
+		확인버튼 클릭하면 p태그를 생성하여 buyer_id, buyer_name을 출력한다
+		p태그를 클릭하면 buyer_id값을 가지고 해당제품의 상세보기를 실행한다.
+	</pre>
+	<input type="button" value="확인">
+	<br><br>
+	<div id="d1">
+		<table border="1">
+			<thead>
+				<tr id="ttr">
+					<th>거래처이름</th>
+					<th>거래처상세정보</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td id="names"></td>
+					<td id="detail"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</body>
+</html>

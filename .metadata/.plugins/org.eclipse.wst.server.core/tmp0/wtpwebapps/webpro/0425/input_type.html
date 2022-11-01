@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<style>
+			form{
+				border: 2px solid blue;
+				margin: 5px;
+				padding: 10px;
+				width: 50%;
+				height: 300px;
+			}
+			
+			label {
+				display: inline-block;
+				width: 100px;
+				height: 30px;
+			}
+			
+			#food{
+				width: 130px;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="input_type.jsp" method="post">
+			<label>아이디</label>
+			<input type="text" name="id"><br>
+			
+			<label>이름</label>
+			<input type="text" name="name"><br>
+			
+			<label>비밀번호</label>
+			<input type="password" name="pass"><br>
+			
+			<label>성별</label>
+			<input type="radio" checked="checked" name="gender" value="남자">남자 <!-- 이름 = 값으로 있는데 checked = "checked"는 이름과 값이 같기 때문에 checked만 써주어도 된다. -->
+			<input type="radio" name="gender" value="여자">여자<br>
+			
+			<label id="food">좋아하는 음식</label>
+			<input type="checkbox" checked name="like" value="떡볶이">떡볶이 <!-- checked를 붙이면 처음에 실행할 때 이미 체크되어 있음 -->
+			<input type="checkbox" name="like" value="떡갈비">떡갈비
+			<input type="checkbox" name="like" value="치킨과 맥주">치킨과 맥주
+			<input type="checkbox" name="like" value="잡채">잡채
+			<input type="checkbox" name="like" value="짜장면">짜장면
+			<input type="checkbox" name="like" value="피자">피자
+			<input type="checkbox" name="like" value="돈까스">돈까스
+			<input type="checkbox" name="like" value="짬봉">짬봉<br>
+			
+			<input type="submit" value="전송">
+		</form>
+	</body>
+</html>

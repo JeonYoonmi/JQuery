@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	$('#d1 p').on('click', function(){
+		vtitle = $(this).attr('title');
+		
+		vimg = $('<img>', {
+			'src' : '../images/' + vtitle + ".jpg",
+			'alt' : vtitle,
+			'width' : '100px',
+			'height' : '100px'
+		})
+		
+// 		$(this).append(vimg);
+// 		$(vimg).appendTo(this);
+// 		$(this).prepend(vimg);
+		$(vimg).prependTo(this);
+	})
+	
+	$('#d2 p').on('click', function(){
+		
+		vattr = $(this).attr('title');
+		
+// 		vimg = $("<img src='../images/" + vattr + ".jpg' alt='" + vattr + "'>")
+		
+		vimg = $('<img>', {
+			'src' : '../images/' + vattr + ".jpg",
+			'alt' : vattr,
+			'width' : '100px',
+			'height' : '100px'
+		})
+		
+// 		$(vimg).insertAfter(this);
+// 		$(this).after(vimg);
+// 		$(vimg).insertBefore($(this));
+		$(this).before($(vimg));	//함수 뒤에() 안에는 매게변수 자리 그 안에는 dom방식의 변수가 와도 API에서 수행이 가능.
+		
+	})
+})
+</script>
+
+<style>
+p {
+	border: 1px solid blue;
+}
+
+img {
+	width: 100px;
+	height: 100px;
+}
+</style>
+</head>
+<body>
+	<pre>
+		부모의 테두리를 벗어나지 않고 추가된다.
+		부모.append(자식내용)
+		자식내용.appemdTo(부모)
+		
+		부모.prepend(자식내용)
+		자식내용.prependTo(부모)
+	</pre>
+	<br><br>
+	<div id="d1">
+		<p title="Tulips">튜울립</p>
+		<p title="Chrysanthemum">국화</p>
+		<p title="Koala">코알라</p>
+		<p title="Hydrangeas">수국     </p>  
+	</div>
+	
+	<pre>
+		부모의 테두리 바깥쪽에서 추가된다.
+		부모.after(자식내용)
+		자식내용.insertAfter(부모)
+		
+		부모.before(자식내용)
+		자식내용.insertBefore(부모)
+	</pre>
+	<br><br>
+	<div id="d2">
+		<p title="Tulips">튜울립</p>
+		<p title="Chrysanthemum">국화</p>
+		<p title="Koala">코알라</p>
+		<p title="Hydrangeas">수국     </p>  
+	</div>
+	
+</body>
+</html>

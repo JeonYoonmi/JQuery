@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title></title>
+		<style>
+			div{
+				border : 1px solid orange; /*블럭요소라 끝까지 그려진다.*/
+				margin : 20px;/*선과 선 사이의 여백 아래는 20px이 넘기 떄문에 무시된다.*/
+				width : 200px;
+				height : 300px;
+				float : left; /*왼쪽을 기준으로*/
+				overflow : auto;
+				/*가로나 세로가 넘치면 hidden, scroll(하지만 넘치치 않으것도 스크롤 바가 보여서 지저분해짐), auto(알아서 해줌 => 넘친거만 스크롤)*/
+			}
+			
+			ul{
+				/*border : 1px solid blue;*/ /*블럭요소라 끝까지 그려진다.*/
+			}
+			
+			li{
+				/*border : 1px solid green;*/ /*블럭요소라 끝까지 그려진다.*/
+			}
+			
+			#d2{
+				/*float : right;*/
+			}
+			
+			img{
+				width : 20px;
+				height : 20px;
+			}
+			
+			hr{
+				clear : both; /*옆으로 이어서 보여주는거 없앰 */
+			}
+			
+			#d6, #d7, #d8{
+				width : 400px;
+			}
+			
+			#d6 ul{
+				list-style-type : circle; /*처음에 디스크가 나오지 않고 circle로 나옴*/
+			}
+			
+			#d7 ul{
+				list-style-type : square;
+			}
+			
+			#d8 ul{
+				list-style-image : url(../images/check.png);
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+		<div id="d1">
+			<!--  다 블럭요소 -->
+			<ul>
+				<li>네이버</li>
+				<li>다음</li>
+				<li>네이트</li>
+				<li>w3schools</li>
+			</ul>
+		</div>
+		
+		<div id="d2">
+			<ul>
+				<li><img src="../images/아메리카노.jpg" alt="아메리카노.jpg"></li>
+				<li><img src="../images/에스프레소.jpg" alt="에스프레소.jpg"></li>
+				<li><img src="../images/진달래꽃.jpg" alt="진달래꽃.jpg"></li>
+				<li><img src="../images/카페라떼.jpg" alt="카페라떼.jpg"></li>
+			</ul>
+		</div>
+		
+		<div id="d3">
+			<ul>
+				<li><a href="http://www.naver.com" target="_blank">네이버</a></li><!-- target : _self(현제탭이 클릭한 페이지로 변경), _blank 설정안하면 _self -->
+				<li><a href="http://www.daum.net" target="_blank">다음</a></li>
+				<li><a href="http://www.nate.com" target="_blank">네이트</a></li>
+				<li><a href="http://www.w3schools.com" target="_blank">w3schools</a></li>
+			</ul>
+		</div>
+		
+		<div id="d4">
+			<ul>
+				<li>
+					<a href="../0420/아메리카노.html">
+						<img src="../images/아메리카노.jpg" alt="아메리카노.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="../0420/카푸치노.html">
+						<img src="../images/카푸치노.jpg" alt="카푸치노.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="../0420/pre태그.html">
+						<img src="../images/진달래꽃.jpg" alt="진달래꽃.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="../0420/카페라떼.html">
+						<img src="../images/카페라떼.jpg" alt="카페라떼.jpg">
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div id="d5">
+			<ul><!-- 리스트 -->
+				<li>네이버
+					<ul>
+						<li>메일
+							<ul>
+								<li>일주일전</li>
+									<li>4/20
+										<ul>
+											<li>오전</li>
+											<li>오후</li>
+										</ul>
+									</li>
+								<li>4/21</li>
+							</ul>
+						</li>
+						<li>로그인</li>
+						<li>회원가입</li>
+					</ul>
+				</li>
+				<li>다음
+					<ol>
+						<li>메일
+							<ul>
+								<li>일주일전</li>
+								<li>어제</li>
+								<li>오늘</li>
+							</ul>
+						</li>
+						<li>로그인</li>
+						<li>회원가입</li>
+					</ol>
+				</li>
+				<li>네이트</li>
+				<li>w3schools</li>
+			</ul>
+		</div>
+		
+		<hr>
+		
+		<div id="d6">
+		<h3>ul {list style-type : circle}</h3>
+			<ul>
+				<li>네이버</li>
+				<li>다음</li>
+				<li>네이트</li>
+				<li>w3schools</li>
+			</ul>
+		</div>
+		
+		<div id="d7">
+		<h3>ul {list style-type : square}</h3>
+			<ul>
+				<li>네이버</li>
+				<li>다음</li>
+				<li>네이트</li>
+				<li>w3schools</li>
+			</ul>
+		</div>
+		
+		<div id="d8">
+		<h3>ul {list style-type : url(../images/check.png}</h3>
+			<ul>
+				<li>네이버</li>
+				<li>다음</li>
+				<li>네이트</li>
+				<li>w3schools</li>
+			</ul>
+		</div>
+	</body>
+</html>

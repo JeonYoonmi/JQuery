@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	$('#btn1').on('click', function(){
+		$('form *:enabled').css('border', '2px solid blue');
+		$('form *:disabled').css('border', '2px solid red');
+	})
+	
+	$('#btn2').on('click', function(){
+// 		alert($(':checkbox:checked').val());
+
+		str="";
+// 		$.each($(':checkbox:checked').val());
+		$(':checkbox:checked').each(function(i){
+// 			str += $(':checkbox:checked').eq(i).val();
+			str += $(this).val() + " ";
+		});
+		
+		alert(str);
+	})
+	
+	$('#btn3').on('click', function(){
+		
+		str="";
+		$('#spring option:selected').each(function(i, v){
+			str += $(this).val() + " ";
+		})
+		
+		alert(str);
+	})
+})
+</script>
+</head>
+<body>
+	<pre>
+		
+	</pre>
+	<input type="button" value="확인" id="btn1">
+	<br><br>
+	<div id="d1">
+		<form> 
+			<input type="text" name="id" value="KOREA" disabled="disabled"><br>
+			<input type="password" name="pass"><br>
+			
+			<select name="disSelect">
+			      <option>Option1</option>
+			      <option>Option2</option>
+			      <option>Option3</option>
+			      <option>Option4</option>
+			</select>
+			<br>
+			<textarea name="enTextarea" rows=10 cols=20>text</textarea><br>
+			<input type="button" value="확인" onclick="alert('Hello')"> <br>
+		</form>
+	</div>
+	
+	<pre>
+		$('input[type=checkbox]:checked')
+		$('input:checkbox:checked')
+		$(':checkbox:checked')
+	</pre>
+	
+	취미를 선택한 후 확인버튼 클릭<br>
+	<input type="button" value="확인" id="btn2">
+	<br><br>
+	<div id="d2">
+		<form>
+			취 미 :
+			<input type="checkbox" name="hobby" value="여행" checked >여행
+			<input type="checkbox" name="hobby" value="장기">장기
+			<input type="checkbox" name="hobby" value="바둑">바둑
+			<input type="checkbox" name="hobby" value="독서" >독서
+			<input type="checkbox" name="hobby" value="낚시">낚시<br><br>
+		</form>
+	</div>
+	
+	<pre>
+		$('option:selected')
+		$('select option:selected')
+	</pre>
+	
+	option을 선택하고 버튼을 클릭하세요.<br>
+	<input type="button" value="확인" id="btn3">
+	<br><br>
+	<div id="d3">
+		<form>
+			봄소식 :<br>
+			<select name="spring" id="spring" multiple="multiple" size="6">
+				<option>개나리</option>
+				<option selected="selected">진달래</option>
+				<option>민들레</option>
+				<option selected>벚꽃</option>
+				<option>목련</option>
+				<option>철쭉</option>
+			</select>
+		</form>
+	</div>
+</body>
+</html>

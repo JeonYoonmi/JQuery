@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+// 	$('.but').click(function(){
+// 	$('.but').on('click', function(){
+
+	$('.but').bind('click', function(){
+		$('<input type="button" value="확인" class="but">');
+		$('<input>', {
+						'type' : 'button',
+						'value' : '확인',
+						'class' : 'but'		//id로 주면 안된다
+		}).appendTo($('#d1'));
+
+	})
+	
+	$('#stop').bind('click', function(){
+// 		$('.but').unbind('click');
+		$('.but').off('click');
+	})
+	
+	$(".butone").one('click', function(){
+		aa = $('<input type="button" value="확인one" class="butone">');
+		$(aa).appendTo($('#d1'));
+	})
+})
+</script>
+</head>
+<body>
+	<pre>
+	$('.but').click(function(){})
+	$('.but').on('click', function(){})
+	$('.but').bind('click', function(){})
+	
+	동적으로 새롭게 생성된 요소에는 이벤트 헨들러가 수행되지 않는다.
+	</pre>
+	<input type="button" value="확인" class="but">
+	<input type="button" value="확인one" class="butone">
+	<br><br>
+	<input type="button" value="중지" id="stop">
+	<br><br>
+	<div id="d1"></div>
+	
+</body>
+</html>

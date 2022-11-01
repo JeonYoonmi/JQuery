@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+form{
+	border: 1px solid blue;
+	padding: 10px;
+	width: 50%;
+}
+
+label{
+	display: inline-block;
+	width: 100px;
+	height: 40px;
+}
+
+fieldset {
+	width: 50%;
+}
+
+textarea {
+	margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+	<form action="fieldset.jsp" method="post">
+		<fieldset>
+			<legend>인적사항</legend>
+			
+			<label for="name">이름</label>
+			<input type="text" name="name"><br>
+			
+			<label for="addr">주소</label>
+			<input type="text" name="addr"><br>
+			
+			<label for="tel">전화번호</label>
+			<input type="text" name="tel"><br>
+<!-- 		<input type="tel" name="tel"><br> input type="text"와 다른게 없음-->
+			
+			<label for="mail">메일</label>
+			<input type="email" name="mail"><br> <!-- 이메일 형식 : @만 붙이면 뒤에 .com같은거는 없어도 체크가 안된다. -->
+			
+			<label for="age">나이</label>
+			<input type="number" min="15" max="60" value="20" step="5"> <!-- 최소 15, 최대 60, 한번 올리거나 내릴 때 5씩 늘거나 준다. -->
+			<input type="range" min="15" max="55" value="20" step="1">
+			
+		</fieldset>
+		
+		<fieldset>
+			<legend>경력사항</legend>
+			
+			<label>기간</label>
+			<input type="date" name="start1"> ~ <input type="date" name="end1">
+			<textarea name="content1" rows="5" cols="50"></textarea>
+			<br>
+			<label>기간</label>
+			<input type="date" name="start2"> ~ <input type="date" name="end2">
+			<textarea name="content2" rows="5" cols="50"></textarea>
+			<br>
+			<label>기간</label>
+			<input type="date" name="start3"> ~ <input type="date" name="end3">
+			<textarea name="content3" rows="5" cols="50"></textarea>
+			<br>
+			
+			<input type="submit">
+			
+		</fieldset>
+	</form>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+// 	window.onload = function(){}
+// 	$(document).ready(function(){})
+	$(function(){
+		
+		//모든 p태그를 선택
+		$('p').css('background', 'lime');
+		
+		//1번째 form안의 p태그를 선택
+		$('p', document.forms[1]).css('font-size', '2.0em');
+		
+		//이벤트 발생요소(this) 내에서 p태그를 선택하라
+		$('div').on('click', function(){
+// 			$('p', this).css('color', 'red');
+// 			$('p', this).css('font-size', '2.0em');
+// 			$('p', this).css('font-weight', 'bold');
+
+// 			$('p', this).css('color', 'red')
+// 						.css('font-size', '2.0em')
+// 						.css('font-weight', 'bold');
+
+			$('p', this).css({	//this 후손에 있는 p탸그를 의미한다.
+				'color' : 'red',
+				'font-size' : '2.0em',
+				'font-weight' : 'bold',
+			})
+			
+		})
+		
+		
+	})
+</script>
+</head>
+<body>
+	<pre>
+		
+	</pre>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="d1">
+		<p>무궁화 꽃이 피었습니다.</p>
+	</div>
+	
+	<p>다시 만날 수 있을까?</p>
+	
+	<form>
+		<p>별빛같은 나의 사랑아</p>
+	</form>
+	
+	<form>
+		<p>우리들의 블루스</p>
+	</form>
+
+	<div>
+		<p>사랑은 늘 도망가</p>
+	</div>	
+</body>
+</html>

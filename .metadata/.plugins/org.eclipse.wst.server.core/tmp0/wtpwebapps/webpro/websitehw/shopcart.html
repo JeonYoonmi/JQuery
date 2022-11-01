@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+body{
+	background: #FCFCED
+}
+
+table{
+	border-collapse: collapse;
+	text-align: center;
+}
+
+th{
+	width: 100px;
+}
+
+#h3{
+	width: 200px;
+}
+
+div{
+	background: white;
+	border: 1px solid gray;	
+	width: 80px; 
+	height: 19px;
+	margin-left: 10px; 
+	text-align: left;
+}
+</style>
+</head>
+<body>
+	<table border="1">
+		<caption>Shopping Cart</caption>
+		
+		<tr>
+			<th>품목</th>
+			<th>가격</th>
+			<th id="h3">수량</th>
+			<th>합계</th>
+		</tr>
+		
+		<tr>
+			<td>컴퓨터세트</td>
+			<td>20,000,000원</td>
+			<td><input type="number" min="0" value="0" step="1"></td>
+			<td><div>0</div></td>
+		</tr>
+		
+		<tr>
+			<td>티셔츠</td>
+			<td>50,000원</td>
+			<td><input type="number" min="0" value="0" step="1"></td>
+			<td><div>0</div></td>
+		</tr>
+		
+		<tr>
+			<td>음악파일</td>
+			<td>1,000원</td>
+			<td><input type="number" min="0" value="0" step="1"></td>
+			<td><div>0</div></td>
+		</tr>
+		
+		<tr>
+			<td>영화파일</td>
+			<td>5,000원</td>
+			<td><input type="number" min="0" value="0" step="1"></td>
+			<td><div>0</div></td>
+		</tr>
+	</table>
+	
+	<br>
+	<input type="button" value="계산">
+	<input type="submit" value="구매">
+	<input type="reset">
+	<br><br>
+	<a href="main.html">Back to Home</a>
+</body>
+</html>

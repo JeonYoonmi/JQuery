@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	$('input:button').on('click', function(){
+		
+		//입력한 값 가져오기
+		dvalue = $('#dong').val().trim();
+		
+		//서버로 요청하기
+		$.ajax({
+			url : '/jqpro/SearchZip.do',
+			type : 'get',
+			data : { "dong" : dvalue },
+			dataType : 'json',
+			error : function(xhr){
+				alert("상태 : " + xhr.status);
+			},
+			success : function(res){
+				code = "<table border='1'>";
+				code += "<tr><th>우편번호</th><th>주소</th><th>번지</th></tr>";
+				$.each(res, function(i, v){
+					code += "<tr class='tdata'><td>" + v.zipcode + "</td>";
+					code += "<td>" + v.addr +"</td>";
+					code += "<td>" + v.bunji + "</td></tr>";
+				})
+				code += "</table>";
+				
+				$('#d1').html(code);
+			}
+		})
+	})
+	
+	//delegate방법 - tdata가 새로생긴거라서
+// 	$('#d1').on('mouseover', '.tdata', function(){
+// 		$(this).addClass('bcolor');
+// 	})
+// 	$('#d1').on('mouseout', '.tdata', function(){
+// 		$(this).removeClass('bcolor');
+// 	})
+
+	//자식에서 부모를 부를 때 opner
+	$('#d1').on('click', '.tdata', function(){
+		zip = $('td:eq(0)', this).text();
+		addr = $('td:eq(1)', this).text();
+		
+		//부모창으로
+		$('#zip', opener.document).val(zip);
+		$('#add1', opener.document).val(addr);
+		
+		window.close();
+	})
+
+})
+</script>
+
+<style>
+.tdata:hover{
+	background : pink;
+}
+</style>
+</head>
+<body>
+	<pre>
+		
+	</pre>
+	<h3>찾는 동 이름을 입력하세요</h3>
+	<input type="text" id="dong">
+	<input type="button" value="확인">
+	<br><br>
+	<div id="d1"></div>
+	
+</body>
+</html>

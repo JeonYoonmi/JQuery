@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="zip">
+<!-- 	<select id="selectByDong" resultClass="zip" parameterClass="string"> -->
+<!-- 		select * from ziptb where dong like #data#||'%' -->
+<!-- 	</select> -->
+	
+	<select id="selectZip" resultClass="zip" parameterClass="map">
+		select zipcode, sido, gugun, dong, nvl(bunji,' ') bunji
+		from ziptb
+		where sido=#sido#
+		and gugun=#gugun#
+		and dong like #dong#||'%'
+	</select>
+	
+	<select id="selectDongName" resultClass="string" parameterClass="map">
+		select distinct nvl(substr(dong, 0, instr(dong, ' ')-1), dong)
+		from ziptb
+		where sido=#sido#
+		and gugun=#gugun#
+	</select>
+	
+	<select id="selectSido" resultClass="string">
+		select sido 
+		from ziptb
+		group by sido
+	</select>
+	
+	<select id="selectGugun" parameterClass="string" resultClass="string">
+		select gugun
+		from ziptb
+		where  sido=#sido#
+		group by gugun
+	</select>
+</sqlMap>

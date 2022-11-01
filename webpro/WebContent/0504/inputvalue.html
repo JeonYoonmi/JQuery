@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="http://192.168.146.16/webpro/css/public.css">
+
+<style>
+div{
+	height: 150px;
+}
+label {
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+}
+</style>
+
+<script>
+	function calc(){
+		//입력한 값 가지고 오기
+		xvalue = parseInt(document.getElementById('x').value);
+		yvalue = parseInt(document.querySelector('#y').value);
+		
+		hap = xvalue + yvalue;
+		
+		//id=sum의 값을 불러와서 그 값에 hap을 대입
+		document.getElementById('sum').value = hap;
+	}
+</script>
+</head>
+<body>
+	<pre>
+		input요소의 값을 script에서 사용 - value를 이용
+		document.getElementById('x').value
+		document.querySelector('#y').value
+		
+		script에서 수행된 결과 값을 input요소에 출력 - value를 이용
+		document.getElementById('sum').value = hap;
+	</pre>
+    <h3>덧셈 계산기</h3>
+    
+    <div>
+	    <form name="myform">
+	      	<label>첫번째 정수:</label>	        
+	        <input type="text" id="x"><br>
+	        
+	      	<label>두번째 정수:</label>
+	       	<input id="y"><br>
+	       		
+	     	<label>합계:</label>
+	        <input id="sum"><br>
+	        
+	        <input type="button" value="계산" onclick="calc();">
+	    </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+form{
+	border: 1px solid blue;
+}
+
+form *{
+	font-size: 2.5em;
+	border: 1px dotted orange;
+}
+</style>
+<!-- 여기서  스크립트를 주면 document를 실행하기 전에 script를 실행해서 오류가 난다. -->
+</head>
+<body>
+	<form name="ff"> <!-- form의 name과 input의 name은 같이 있어야 한다. -->
+		<p>스트립트에서 color값을 활용하여 색상을 적용시킨다.</p>
+		<p>스트립트로 선택한 값을 가져가기 위해서</p>
+		<p>태그 이름을 이용 : <br>
+			document.getElementByTagName('input') <!-- 모든 인풋을 다 갖고 와라 -->
+			document.querySelector('input') <!-- es6에서 새로 나옴, 제일 처음에 있는 인풋을 갖고와라 -->
+			document.querySelectorAll('input') <!-- 모든 인풋을 다 갖고 와라 -->
+		</p> <!-- document객체로 변환 -->
+		<p>name속성을 이용 : <br>
+			document.ff.color
+		</p>
+		<p>id속성을 이용 : <br>
+			document.getElementById('color');
+			document.querySelector('#color'); <!-- querySelector에서 id는 하나이기 때문에 All이 붙은건 없다  -->
+		</p>
+		<p>class속성을 이용:<br>
+			document.getElementsByClassName('color')
+			document.querySelector('.color') <!-- color클래스에서 앞에 하나만 가지고 간다. -->
+			document.querySelectorAll('.color') <!-- color클래스에있는 모든걸 가지고 간다. -->
+		</p>
+		<input type="color" name="color" id="color" onchange="changecolor()"> <!-- onchange : 사용자 함수 이름 -->
+	</form>
+	
+	
+	<script>
+		//color요소에 접근
+		var vcolor = document.ff.color.value;
+		console.log(vcolor);
+		
+		function changecolor() {
+// 			vcolor = document.ff.color.value;
+// 			vcolor = document.getElementById('color').value;
+// 			vcolor = querySelector('#color').value;
+// 			console.log(vcolor); //16진수 색깔이 계속해서 찍힌다.
+// 			document.ff.style.background = vcolor;
+
+		vcolor = document.getElementsByTagName('input')[0].value;
+		document.querySelector('form').style.background = vcolor;
+		}
+		
+	</script>
+</body>
+</html>

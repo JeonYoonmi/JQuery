@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="member">
+	<select id="selectAll" resultClass="member">
+		select * from member
+	</select>
+	
+	<select id="selectById" parameterClass="string" resultClass="string">
+		select mem_id from member where mem_id = #data#
+	</select>
+	
+	<!-- 리턴결과가 null -->
+	<insert id="insertMember" parameterClass="member">
+		insert into member(mem_id, mem_pass, mem_name, mem_bir, mem_zip, mem_add1, mem_add2, mem_hp, mem_mail)
+		values(#mem_id#, #mem_pass#, #mem_name#, #mem_bir#, #mem_zip#, #mem_add1#, #mem_add2#, #mem_hp#, #mem_mail#)
+		
+		<!-- 리턴 결과 값을 mem_id로 처리할 수 있다. 단, 증복되지 않는 값-->
+		<selectKey keyProperty="mem_id" resultClass="string">
+			select mem_id from member where mem_id=#mem_id#
+		</selectKey>
+		
+	</insert> <!-- 리턴값을 null을 주는데 update로 하면 int값을 준다. update에 insert문 가능 -->
+	
+	<!-- 리턴결과형이 int -->
+	<update id="insertUpdate" parameterClass="member">
+		insert into member(mem_id, mem_pass, mem_name, mem_bir, mem_zip, mem_add1, mem_add2, mem_hp, mem_mail)
+		values(#mem_id#, #mem_pass#, #mem_name#, #mem_bir#, #mem_zip#, #mem_add1#, #mem_add2#, #mem_hp#, #mem_mail#)
+	</update>
+</sqlMap>

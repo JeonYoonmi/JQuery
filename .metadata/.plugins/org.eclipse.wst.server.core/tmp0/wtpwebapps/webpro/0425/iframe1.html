@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="../css/public.css">
+		
+		<style>
+			a{
+				margin : 30px;
+			}
+			
+			span{
+				color : red;
+				font-weight: bold;
+				display: inline-block; /*inline : 줄이 안바뀜. width, height를 설정할 수 없음 , block : 줄이 바뀌고 원하는 크기로, none : 화면에서 안보이게, inline-block : 인라인요소에서 줄이 안바뀌는 속성, 블럭요소에서 크기를 지정할 수 있는 속성을 가지고 있음.*/
+				width: 200px;
+ 				height: 50px; /*display 없이는 적용이 안된다*/
+			}	
+			
+			iframe {
+				width: 80%;
+				height: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<pre>
+			&lt;a href="../0420/아메리카노.html" <span>target="_blank"</span>>아메리카노&lt;/a>
+		</pre>
+		<a href="../0420/아메리카노.html" target="_blank">아메리카노</a><!-- <a>는 인라인 요소 -->
+		<a href="../0420/카페라떼.html" target="_blank">카페라떼</a>
+		<a href="../0420/카푸치노.html" target="_blank">카푸치노</a>
+		<br><hr><br>
+		
+		<pre>
+			&lt;a href="../0420/아메리카노.html" <span>target="ifr"</span>>아메리카노&lt;/a>
+			iframe은 웹페이지 내부에 따른 다른 웹페이지를 포함시킬 때 사용
+			a태그의 타겟속성으로 iframe의 name을 지정할 수 있다.
+			&lt;iframe <span>name="ifr"</span> src="../0421/리스트UL.html">&lt;/iframe>
+		</pre>
+		<a href="../0420/아메리카노.html" target="ifr">아메리카노</a>
+		<a href="../0420/카페라떼.html" target="ifr">카페라떼</a>
+		<a href="../0420/카푸치노.html" target="ifr">카푸치노</a>
+		<br><br>
+		<iframe name="ifr" src="../0421/리스트UL.html"></iframe>
+		<!-- src : 처음에 보여지는 html, src가 잘못되면 404오류가 난다., 원하는 html파일을 클릭하고 ctrl+c ctrl+v하면 나온다. -->
+	</body>
+</html>

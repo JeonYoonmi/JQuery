@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="../css/public.css">
+		
+		<style>
+			span{
+				color: red;
+				font-weight: bold;
+			}
+		
+			form{
+				border: 3px dashed gray;
+				width: 60%;
+				height: 300px;				
+				margin: 20px auto;
+				padding: 20px;
+			}
+			
+			label{
+ 				display: inline-block;
+				width: 100px;
+ 				height: 30px;
+ 				text-align: center;
+			}
+			
+			#img{
+				width: 40px;
+				height: 30px;
+				vertical-align: top; /* 요소들을 위에서 맞출건지 아래로 맞출건지 */
+			}
+		</style>
+	</head>
+	<body>
+		<pre>
+		이미지를 이용하여 전송한다.
+			&lt;input id="img" <span>type="image"</span> src="../images/sw_on.png">
+		</pre>
+	
+		<form action="input_type2.jsp" method="post">
+			<label>이름</label>
+			<input type="text" name="name"><br>
+			
+			<label>전화번호</label>
+			<input type="text" name="tel"><br>
+			
+			<label>이메일</label>
+			<input type="text" name="email"><br>
+			
+			<label>주소</label>
+			<input type="text" name="addr"><br>
+			
+			<label>첨부파일</label>
+			<input type="file" name="infile"><br>
+			
+			<input type="hidden" value="10" name="hidden"> <!-- value값이 무조건 있어야 한다. -->
+			<br><br>
+			
+			<input type="submit" value="전송"> <!-- value 값을 주지 않으면 제출 -->
+			<input type="reset" value="취소"> <!-- value 값을 주지 않으면 초기화 -->
+			<input id="img" type="image" src="../images/sw_on.png"> <!-- src안에 있는 이미지를 누르는 거임 -->
+						
+		</form>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+	function prod1(){	//이미 onclic이 정의 되어있음. => click을 해야 실행
+		
+	}
+	
+	arr = ["국화.jpg", "국화1.jpg", "국화2.jpg", "국화3.jpg", "국화4.jpg", "국화5.jpg"
+			, "국화6.jpg", "국화7.jpg", "국화8.jpg", "국화9.jpg", "국화10.jpg"];
+	
+	$(document).ready(function(){	//body먼저 실행한 후에 실행 될 수 있도록 설정
+// 		$('<img src="../images/Tulips.jpg", alt="Tulips.jpg">')
+		
+		$('#imgjq').on('click', function(){
+		
+			rand = parseInt(Math.random()*arr.length);
+		
+			//이미지를 생성, 클릭 - 테두리
+			$('<img>', {	//margin은 적용이 안된다.
+				'src' : '../images/' + arr[rand],
+				'alt' : arr[rand],
+				'width' : '100px',
+				'height' : '100px',
+				'click' : function(){
+					$(this).css('border', '2px solid red');
+					
+				}
+			}).appendTo($('#d1'));
+		})
+	})
+	
+</script>
+
+<style>
+img {
+	margin: 5px;
+}
+</style>
+</head>
+<body>
+	<pre>
+		
+	</pre>
+<!-- 	<input type="button" value="이미지 생성 proc1()" onclick="proc1()"> -->
+	<input id="imgjq" type="button" value="이미지 생성 $">
+	<br><br>
+	<div id="d1"></div>
+	
+</body>
+</html>

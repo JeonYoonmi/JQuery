@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+
+var glovalbut; 
+var parent;
+var cimg;
+
+function start(but){	//파라미터는 지역변수임
+	if(typeof cimg != 'undefined') cimg.style.border = "none";
+	
+	glovalbut = but;
+	but.style.display = "none";
+	
+	//부모요소 div id=d1
+	parent = document.getElementById('d1');
+	
+	
+	a = window.setInterval(function(){
+	//자식요소(img) 중 첫 번 째를 선택 - 맨 뒤로 이동 - appendChild
+	fing = parent.firstChild;
+	
+	parent.appendChild(fing);
+	
+	}, 100);
+	
+}
+
+function stop(){	
+rand = parseInt(Math.random() * 7);
+	cimg = parent.childNodes[rand];
+	
+	console.log(cimg);
+	
+	cimg.style.border = "5px solid black";
+	
+	window.clearInterval(a);
+	
+	glovalbut.style.display = "inline";
+}
+</script>
+
+<style>
+img {
+	width: 100px;
+	height: 100px;
+}
+</style>
+</head>
+<body>
+	<pre>
+		종료버튼을 눌렀을 때 랜덤으로 난수를 생성하여 나온 숫자의 위치에 있는 사진에 테두리를 씌워준다.
+	</pre>
+	<input type="button" value="시작" onclick="start(this)">
+	<input type="button" value="종료" onclick="stop()">
+	<br><br>
+	<div id="d1">
+		<img src="../images/딸기스무디.jpg" alt="딸기스무디.jpg">
+		<img src="../images/컴퓨터3.jpg" alt="컴퓨터3.jpg">
+		<img src="../images/가구1.jpg" alt="가구1.jpg">
+		<img src="../images/식품2.jpg" alt="식품2.jpg">
+		<img src="../images/스포츠1.jpg" alt="스포츠1.jpg">
+		<img src="../images/에스프레소.jpg" alt="에스프레소.jpg">
+		<img src="../images/옷2.jpg" alt="옷2.jpg">
+	</div>
+	
+</body>
+</html>

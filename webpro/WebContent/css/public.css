@@ -1,0 +1,19 @@
+@character "UTF-8";
+pre{
+	/* 글자크기 */
+	font-size :  1.3em;
+	
+	/* 테두리 */
+	border : 5px dotted gray;
+	border-bottom : 2px double blue;
+	
+	/* 배경섹 */
+	background : #E4B7FF;
+}
+
+div{
+	border: 2px dotted green;
+	margin: 10px;
+	padding: 10px;
+	height: auto;
+}

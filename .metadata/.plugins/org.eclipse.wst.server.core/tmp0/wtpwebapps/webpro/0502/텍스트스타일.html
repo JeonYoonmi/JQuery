@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+div{
+	border: 2px dotted blue;
+	margin: 20px;
+	padding: 10px;
+	font: italic 2.0em/30px;
+}
+
+#d1{
+	letter-spacing: 10px;
+	line-height: 40px;
+}
+
+#d2{
+	text-align: center;
+	text-decoration: underline;
+}
+
+#d3{
+	text-indent: 50px;
+}
+
+span{
+	background: pink;
+}
+
+#sp1{
+	text-transform: uppercase;
+	text-decoration: underline;
+}
+
+#sp2{
+	text-transform: lowercase;
+	text-decoration: overline;
+}
+
+#sp3{
+	text-transform: capitalize;
+	text-decoration: line-through;
+}
+
+#sp4{
+	text-transform: inherit;
+}
+
+h1{
+	text-shadow: 20px 20px 5px gray; /* (그림자 좌표) (내려오는 정도) (그림자 흐림정도 => 작으면 선명, 커지면 흐려짐) (그림자 색상) */
+}
+
+textarea {
+	 direction: rtl;
+}
+</style>
+</head>
+
+<body>
+<textarea rows="10" cols="50"></textarea>
+<div id="d1">
+<h1>Hello World!!</h1>
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+</div>
+
+<div id="d2">
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+</div>
+
+<div id="d3">
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+Hello World!! <span id="sp1">Good Morning Happy New Year</span>Hello World!! Good Morning Happy New Year
+Hello World!! <span id="sp2">Good Morning Happy New Year</span>Hello World!! Good Morning Happy New Year
+Hello World!! <span id="sp3">Good Morning Happy New Year</span>Hello World!! Good Morning Happy New Year
+Hello World!! <span id="sp4">Good Morning Happy New Year</span>Hello World!! Good Morning Happy New Year
+Hello World!! Good Morning Happy New YearHello World!! Good Morning Happy New Year
+</div>
+
+</body>
+</html>

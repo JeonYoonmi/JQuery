@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+		$('#html').on('click', function(){
+// 			alert($('body').html());
+// 			alert($('p').html());
+
+			aa = $('p').html();
+// 			$('#d1').html(aa);	//가져온 내용 aa 속에 span태그가 html로 실행
+			$('#d1').text(aa);	//가져온 내용  aa 속에 span태그가 그냥 글자로 출력
+		})
+		
+		$('#text').on('click', function() {
+// 			alert($('body').text());			
+// 			alert($('p').text());
+
+			aa = $('p').text();	//태그 포함 없이 모든 p태그의 문자만 가져온다.
+			$('#d1').text(aa);
+		})
+		
+		$('#htmlall').on('click', function(){
+			
+			a ="";
+			$('p').each(function(i, v){
+// 				alert($('p').eq(i).html());	//eq() : equal과 같은 의미	//v = $('p').eq(i)
+// 				alert($(v).html());
+// 				alert($(this).html());
+
+				a += $(this).html() + "<br>";	//get	//+=을 안해주면 덮어쓰기 된다.
+				$('#d2').text(a);	//set-출력
+			})
+		})
+	})
+	
+</script>
+
+<style>
+span {
+	background: yellow;
+	font-size: 2.0em;
+}
+</style>
+</head>
+<body>
+	<pre>
+		
+	</pre>
+	<input type="button" id="html" value="html">
+	<input type="button" id="text" value="text">
+	<input type="button" id="htmlall" value="htmlall">
+	<br><br>
+	<div id="d1"></div>
+	
+	<div id="d2"></div>
+	
+	<p>1<span>홍길동</span></p>
+	<p>2<span>개나리</span></p>
+	<p>3<span>진달래</span></p>
+</body>
+</html>

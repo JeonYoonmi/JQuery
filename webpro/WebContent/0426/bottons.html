@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link type="" rel="stylesheet" href="../css/public.css">
+		
+		<style type="text/css"> /* type="text/css"은 생략가능 */
+			span{
+				color: red;
+				font-weight: bold;;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			function aa() { //type="text/javascript"은 생략가능
+// 				alert("Hello"); //이미 만들어져 있는 내장함수 alart(): 팝업창 뛰우는 메서드
+				
+				var userId = document.ff.id.value;
+				var userName = document.ff.name.value;	
+				
+				alert("아이디 = " + userId + " 이름 = " + userName);
+			}
+		</script>
+	</head>
+	<body>
+	<pre>
+	&lt;input type="button" value="확인">
+	&lt;button type="button">확인&lt;/button>
+	
+	type="button"인 요소는 특별한 기능이 없다.
+	script를 이용하여 기능을 부여한다.
+	<span>onclick="함수이름()"</span> : 클릭이벤트로 정의된 함수를 호출한다.
+	
+	함수정의
+	function aa(){	return 100;}	function aa(x){		}
+	
+	&lt;input type="button" value="확인" <span>onclick="aa()"</span>>
+	&lt;button type="button" <span>onclick="aa()"</span>>확인&lt;/button>
+	</pre>
+	
+	<form name="ff" action="buttons.jsp" method="get">
+		<label>아이디</label>
+		<input name="id"><br>
+		
+		<label>이름</label>
+		<input name="name"><br>
+		
+		<input type="hidden" name="num" value="10">
+		<br>
+		
+<!-- 	<input type="button"> 가능이 없음, value를 꼭 써줘야 한다. 안쓰면 버튼 안에 글씨가 없음-->
+		<input type="button" value="확인" onclick="aa()">
+		<input type="submit">
+		<input type="reset"><br>
+		<br>
+		
+		<button type="button" onclick="aa()">확인</button>
+		<button type="submit">전송</button>
+		<button onclick="aa()">전송(type 생략)</button>
+	
+	</form>
+	</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	
+	xhr = new XMLHttpRequest(); 
+	
+	$('#text').on('click', function(){
+		//응답 => 응답을 받을때 대기중이다가 요청이 처리되면 작동되기때문에 괜춘
+		xhr.onreadystatechange = function()	{
+			if(this.readyState == 4 && this.status == 200){
+				res = this.responseText;
+				//res = 개나리/진달래/수선화/라일락/능소화/장미
+				
+				arr = res.split("/");	//배열을 리턴
+				
+				code = "<ul>";
+				$.each(arr, function(i){
+					code += "<li>" + arr[i] + "</li>";
+				})
+				code += "</ul>";
+				
+				$('#d1').html(code);
+			}
+		}
+		
+		//요청
+		xhr.open('get', 'text.jsp', true);
+		xhr.send();
+		
+	})
+	
+	$('#arr').on('click', function(){
+		//요청
+		xhr.open('get', 'arr.jsp', true);
+		xhr.send();
+		
+		//응답
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				res = this.responseText;
+				//res = ["개나리", "진달래", "하늘소", "장수풍댕이", "국화", "산수국"]
+				//배열을 json형태로 변경후 사용한다.
+				res = JSON.parse(res);
+				
+				code = "<ol>";
+				$.each(res, function(i){
+					code += "<li>" + res[i] + "</li>";
+				})
+				code += "</ol>";
+				
+				$('#d2').html(code);
+			}
+		}
+		
+	})
+	
+	$('#jsobj').on('click', function(){
+		//요청
+		xhr.open('get', 'jsobj.jsp', true);
+		xhr.send();
+		
+		//응답
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 & this.status == 200){
+				res = JSON.parse(this.responseText);
+				
+				
+				code = "이&emsp;름 : " + res.name + "<br>"
+				code += "아이디 : " + res.id + "<br>"
+				code += "전화번호 : " + res.tel + "<br>"
+				code += "주소 : " + res.addr + "<br>"
+				
+				$('#d3').html(code);
+			}
+		}
+	})
+	
+	$('#objarr').on('click', function(){
+		//요청 - jsobarr.jsp
+		xhr.open('get', 'jsobarr.jsp', true);
+		xhr.send();
+		
+		//응답
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 & this.status == 200){
+				res = JSON.parse(this.responseText);
+				
+				code = "";
+				$.each(res, function(i){
+					code += "이름 : " + res[i].name + "<br>"
+					code += "아이디 : " + res[i].id + "<br>"
+					code += "전화번호 : " + res[i].tel + "<br>"
+					code += "주소 : " + res[i].addr + "<br><hr>"
+				})
+				
+				$('#d4').html(code);
+			}
+		}
+		
+	})
+	
+	
+})
+</script>
+</head>
+<body>
+	<pre>
+		
+	</pre>
+	<input type="button" value="text데이터" id="text">
+	<input type="button" value="json배열데이터" id="arr">
+	<input type="button" value="jsonObj데이터" id="jsobj">
+	<input type="button" value="obj배열데이터" id="objarr">
+	<br><br>
+	<div id="d1"></div>
+	<div id="d2"></div>
+	<div id="d3"></div>
+	<div id="d4"></div>
+	
+</body>
+</html>

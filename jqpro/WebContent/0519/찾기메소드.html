@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	<!-- 다운받지 않고 구글 api를 이용해서 사용 - cdn방식 -->
+
+<script>
+$(function(){
+	$('#next').on('click', function(){
+		$('#d1 li.start').next().css({'border' : '1px solid red', 'color' : 'red'});
+	})
+	$('#nexta').on('click', function(){
+		$('#d1 li.start').nextAll().css({'border' : '1px solid green', 'color' : 'red'});
+	})
+	$('#nextu').on('click', function(){
+		$('#d1 li.start').nextUntil($('#d1 li:last')).css({'border' : '1px solid blue', 'color' : 'red'});
+	})
+	$('#prev').on('click', function(){
+		$('#d1 li.start').prev().css({'border' : '1px solid red', 'color' : 'red'});
+	})
+	$('#preva').on('click', function(){
+		$('#d1 li.start').prevAll().css({'border' : '1px solid green', 'color' : 'red'});
+	})
+	$('#prevu').on('click', function(){
+		$('#d1 li.start').prevUntil($('#d1 li:first')).css({'border' : '1px solid blue', 'color' : 'red'});
+	})
+	
+	$('#parent').on('click', function(){
+		$('#d2 span').parent().css({'border' : '1px solid blue', 'color' : 'blue'})
+	})
+	$('#parents').on('click', function(){
+		$('#d2 span').parents().css({'border' : '1px solid red', 'color' : 'red'})
+	})
+	$('#parentss').on('click', function(){
+		$('#d2 span').parents('ul').css({'border' : '1px solid green', 'color' : 'green'})
+	})
+	$('#parentsu').on('click', function(){
+		$('#d2 span').parentsUntil('#d2').css({'border' : '1px solid blue', 'color' : 'blue'})
+	})
+	
+	$('#find1').on('click', function(){
+		$(this).parent().find('span').css('background', 'skyblue');
+	})
+	$('#find2').on('click', function(){
+		$(this).parent().find('span').css('background', 'skyblue');;
+	})
+})
+</script>
+
+<style>
+.siblings * { 
+  display: block;
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  padding: 5px;
+  margin: 15px;
+}
+</style>
+</head>
+<body>
+	<pre>
+		
+	</pre>
+	<input type="button" value="next" id="next">
+	<input type="button" value="nextAll" id="nexta">
+	<input type="button" value="nextUntil" id="nextu">
+	<input type="button" value="prev" id="prev">
+	<input type="button" value="prevAll" id="preva">
+	<input type="button" value="prevUntil" id="prevu">
+	<br><br>
+	<div id="d1">
+		<div style="width:500px;" class="siblings">
+		  <ul>ul (parent)  
+		    <li>li (sibling)</li>
+		    <li>li (sibling)</li>
+		    <li>li (sibling)</li>
+		    <li>li (sibling)</li>
+		    <li class="start">li (sibling with class name "start")</li>
+		    <li>li (the next sibling of li with class name "start")</li>
+		    <li>li (sibling)</li>
+		    <li>li (sibling)</li>
+		    <li>li (sibling)</li>
+		  </ul>   
+		</div>
+	</div>
+	
+	<pre>
+		
+	</pre>
+	<input type="button" value="parent" id="parent">
+	<input type="button" value="parents" id="parents">
+	<input type="button" value="parents_s" id="parentss">
+	<input type="button" value="parentsUntil" id="parentsu">
+	<br><br>
+	<div id="d2">
+		#d2 div
+	  <div style="width:500px;" class="siblings">div (great-grandparent)
+	    <ul>ul (grandparent)  
+	      <li>li (direct parent)
+	        <span>span</span>
+	      </li>
+	    </ul>   
+	  </div>
+	</div>
+		
+	<pre>
+	</pre>
+	<br><br>
+	<div id="d3">
+		<input type="button" value="find" id="find1">
+		<div style="width:500px;">div (grandparent)
+		  <ul>ul (direct parent)  
+		    <li>li (child)
+		      <span>span (grandchild)</span>
+		    </li>
+		  </ul>   
+		</div>
+	</div>
+	<div id="d4">
+		<input type="button" value="find" id="find2">
+		<div style="width:500px;">div (grandparent)
+		  <ul>ul (direct parent)  
+		    <li>li (child)
+		      <span>span (grandchild)</span>
+		    </li>
+		  </ul>   
+		</div>
+	</div>
+	
+</body>
+</html>

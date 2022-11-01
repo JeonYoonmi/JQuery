@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+div {
+	border: 2px dotted green;
+	margin: 10px;
+	padding: 10px;
+	width: 50%;
+	height: 100px;
+}
+
+h1 {
+	color: red;	
+}
+</style>
+
+<script>
+	var now = new Date();
+	
+	var today1 = now.toLocaleString();
+	var today2 = now.toLocaleDateString();
+	var today3 = now.toLocaleTimeString();
+	
+	window.onload = function() {	//이건 스크립트 제일 첫번 째 줄에 넣어도 된다.
+	//div요소를 검색
+		var out = document.querySelector('div');
+//		document.write(today1);	//아래 body의 내용들이 다 날라간다.(덮어쓰기 된것임.) => document.write는 바디에 아무것도 없는게 아닌이상 사용하지 않는다.
+
+		//out변수를 이용해서 today1변수값을 출력한다.
+// 		out.textContent = today1;
+
+		out.innerHTML = today1 + "<br>";
+		out.innerHTML += today2 + "<br>";
+		out.innerHTML += today3;
+	}
+</script>
+</head>
+<body>
+	<pre>
+	html요소에 내용 출력하기
+	innerHTML - 출력 내용 속에 html태그가 포함 될 경우 <!-- 태그가 없어도 사용할 수 있다. -->
+	textContent - 출력 내용 속에 html태그가 포함되지 않을 경우
+	innerText - 출력 내용 속에 html태그가 포함되지 않을 경우
+	</pre>
+	<h1>오늘도 행복하세요</h1>
+	<p>실행하면 오늘의 날짜를 생성하여 아래 div요소에 출력한다.</p>
+	<div></div>
+	<br>
+	<hr>
+	<input type="button" value="확인" onclick="alert('hello')">
+	<input type="button" value="확인" onclick=function() {
+		var now = new Date();
+	
+	}>
+	
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function(){
+	$('input[type=button]').on('click', function(){
+// 		ptag = "<p id='p1' onclick=''>Hello jQuery!!</p>";
+
+		ptag = $('<p></p>', {
+			'id' : 'p1',
+			'text' : 'Hello jQuary',
+			'click' : function(){
+// 				this.style.color = 'red';
+				$(this).css('color', 'red');
+			}
+		})
+		
+// 		$(ptag).appendTo($('#d1'));
+		$('#d1').append(ptag);
+	})
+})
+</script>
+</head>
+<body>
+	<pre>
+		
+	</pre>
+	<input type="button" value="확인">
+	<br><br>
+	<div id="d1"></div>
+	
+</body>
+</html>

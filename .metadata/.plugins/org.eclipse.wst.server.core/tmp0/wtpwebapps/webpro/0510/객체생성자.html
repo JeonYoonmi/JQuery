@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+//객체정의 => 람다함수로 사용 불가하다. 람다함수에서 this는 function자체를 나타낸다. 여기서 원하는거는 Rect
+function Rect(width, height){	//생성자 형태의 객체 정의
+	//속성
+	this.width = width;
+	this.height = height;
+	
+	//메소드
+	this.calcArea = function(){
+		return this.width * this.height;
+	}
+	
+	this.clacCircum = function(){
+		return (this.width + this.height) * 2;
+	}
+}
+
+function proc1(){
+	//Rect객체 정보 출력 - 
+	//생성자 정의 함수를 이용하여 객체를 생성한다.
+	
+	var rect = new Rect(12, 34);
+	
+	//추가
+	rect.name = "네모";
+	
+	res = "가로 : " + rect.width + "<br>";
+	res += "세로 : " + rect.height + "<br>";
+	res += "이름 : " + rect.name + "<br>";
+	res += "면적 : " + rect.calcArea() + "<br>";
+	res += "둘레 : " + rect.clacCircum() + "<br>";
+	
+	document.getElementById('d1').innerHTML = res;
+}
+</script>
+</head>
+<body>
+	<pre></pre>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="d1"></div>
+	
+</body>
+</html>

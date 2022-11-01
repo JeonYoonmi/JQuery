@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+table {
+	border: 2px solid blue;
+}
+
+td {
+	width: 200px;
+	height: 40px;
+	text-align: center;
+}
+
+.ttr{
+	background: skyblue;
+}
+</style>
+
+<script>
+$(function(){
+	$('#btn1').on('click', function(){
+		$.ajax({
+			url : '../0520/member.jsp',
+			type : 'get',
+// 			data : 'id=' + idvalue	=> 가지고 가는 데이터가 있을 때
+			success : function(res){
+				code = "<table border ='1'>";
+				code += "<tr class='ttr'><td>아이디</td>";
+				code += "<td>이름</td><td>이메일</td>";
+				code += "<td>전화번호</td></tr>";
+				
+				$.each(res, function(i){
+					code += "<tr><td>" + res[i].id + "</td>";
+					code += "<td>" + res[i].name  + "</td><td>" + res[i].mail + "</td>";
+					code += "<td>" + res[i].hp + "</td></tr>";
+				})
+				
+				code += "</table>";
+				
+				$('#d1').html(code);
+			},
+			error : function(xhr){
+				alert('상태 : ' + xhr.status);	//200 : json형식 오류 => jsp에서 확인, 500 : syntex오류  => console창 확인, 404 : 지정한 파일이 없다.
+			},
+			dataType : 'json'
+		})
+	})
+})
+</script>
+</head>
+<body>
+	<pre>
+		
+	</pre>
+	<input type="button" value="확인" id="btn1">
+	<br><br>
+	<div id="d1"></div>
+	
+</body>
+</html>

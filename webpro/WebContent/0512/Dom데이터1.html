@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+function proc1(){
+// 	list = document.getElementsByTagName('ul');
+// 	allItem = list[0].getElementsByTagName('li');
+	
+	list = document.getElementsByTagName('ul')[0];
+	allItem = list.getElementsByTagName('li');
+	
+	str = "";
+	for(i=0; i<allItem.length; i++){
+// 		alert(allItem[i].firstChild);
+		str += allItem[i].firstChild.data + "<br>";
+	}
+	
+	document.getElementById('d1').innerHTML = str;
+	
+}
+
+function proc2(){
+	list = document.getElementsByTagName('ul')[1];
+	allItem = list.getElementsByTagName('li');
+	
+	str = "";
+	for(i=0; i<allItem.length; i++){
+		vsrc = allItem[i].firstChild.data;
+		
+		vimg = document.createElement('img');
+		
+		vimg.src = "../images/" + vsrc+".jpg";
+		vimg.alt = vsrc;
+		vimg.width = '50';
+		vimg.height = '50';
+		
+		allItem[i].appendChild(vimg);
+	}
+	
+	document.getElementById('d2').innerHTML = str;
+}
+
+function proc3(aa){
+	vsrc = aa.firstChild.data;
+	
+	vimg = document.createElement('img');
+	vimg.src = "../images/" + vsrc + ".jpg";
+	vimg.alt = vsrc;
+	
+	aa.appendChild(vimg);
+}
+</script>
+
+<style>
+img{
+	width: 50px;
+	height: 50px;
+}
+
+li:hover {
+	background: pink;
+	font-size: 1.5em; 
+}
+</style>
+</head>
+<body>
+	<pre>
+	</pre>
+	<ul>
+		<li>List Item1</li>
+		<li>List Item2</li>
+		<li>List Item3</li>
+		<li>List Item4</li>
+		<li>List Item5</li>
+	</ul>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="d1"></div>
+	
+	<pre>
+	</pre>
+	<ul>
+		<li>등대</li>
+		<li>뱅쇼</li>
+		<li>셔틀콕</li>
+		<li>진달래꽃</li>
+		<li>핫초코</li>
+	</ul>
+	<input type="button" value="확인" onclick="proc2()">
+	<br><br>
+	<div id="d2"></div>
+	
+	<pre>
+		클릭한 아이템을 기준으로 이미지를 생성하여 추가
+	</pre>
+	<ul>
+		<li onclick="proc3(this)">등대</li>
+		<li onclick="proc3(this)">뱅쇼</li>
+		<li onclick="proc3(this)">셔틀콕</li>
+		<li onclick="proc3(this)">진달래꽃</li>
+		<li onclick="proc3(this)">핫초코</li>
+	</ul>
+	<input type="button" value="확인" onclick="proc3()">
+	<br><br>
+	<div id="d2"></div>
+</body>
+</html>

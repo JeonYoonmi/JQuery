@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+function proc1(){
+	
+	rand = parseInt(Math.random() * 10 + 1);
+	
+	//부모창의 div id=d1인 요소에 출력
+	opener.document.getElementById('d1').innerHTML = rand;
+	
+	window.close();
+}
+</script>
+</head>
+<body>
+	<pre>
+		window.open()에 의해서 열린 자식창이다.
+		자식창에서 처리한 결과를 부모창으로 보낼 때
+		opener속성을 이용한다.
+	</pre>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="d1"></div>
+	
+</body>
+</html>

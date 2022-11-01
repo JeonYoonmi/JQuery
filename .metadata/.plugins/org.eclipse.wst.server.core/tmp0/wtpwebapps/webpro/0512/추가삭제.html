@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+// str = ["좋은아침", "행복한날", "Hello", "Happy", "안녕!", "GoodMorning"];
+str = ["행복한날", "사랑해진짜", "별밫같은 나의 사랑아", "우리들의 블루스", "다시 만날 수 있을까", "무지개", "인생찬가", "보금자리", "사랑은 늘 도망가"];
+
+function proc1(){
+
+	rand = parseInt(Math.random() * str.length);
+	
+	//p태그 생성
+	ptag = document.createElement('p');
+	
+	//str[rand]로 textNode생성
+	text = document.createTextNode(str[rand]);
+	
+	//텍스트노드를 p태그에 추가
+	ptag.appendChild(text);
+	
+	//p태그를 div에 추가
+	divtag = document.getElementById('d1');
+	divtag.appendChild(ptag);
+}
+
+function proc2(){
+	//부모.removeChild(자식)
+	parent = document.getElementById('d1');
+	
+	//삭제할 자식을 선택
+	ptag = parent.lastChild;
+	
+	//삭제
+	parent.removeChild(ptag);
+	
+}
+
+function proc3(){
+	//random 발생
+	rand = parseInt(Math.random() * str.length);
+		
+	//p테그 생성
+	ptag = document.createElement('p');
+	
+	//문자 textNode 생성
+	text = document.createTextNode(str[rand]);
+	
+	//button 생성  -type와 text를 설정
+	buttontag = document.createElement('button');
+	buttontag.type = "button";
+	buttontag.innerText = "삭제";	//textContent innerHTML
+	buttontag.onclick = function(){
+		this.parentNode.remove();
+	}	//this는 button태그를 가리켜야 하므로 람다함수를 넣으면 안된다.
+	
+	//p태그에 textNode와 button을 추가
+	ptag.appendChild(text);
+	ptag.appendChild(buttontag);
+	
+	//div에 p태그를 추가
+	divtag = document.getElementById('d3');
+	divtag.appendChild(ptag);
+}
+</script>
+</head>
+<body>
+	<pre>
+		추가 버튼 : 랜덤으로 발생하는 문자열을 추가
+		ptag 생성
+		textNode 생성
+		ptag.appendChild(textNode)
+		divtag.appendChild(ptag)
+		삭제버튼 : 마지막 요소를 삭제
+	</pre>
+	<input type="button" value="추가" onclick="proc1()">
+	<input type="button" value="삭제" onclick="proc2()">
+	<br><br>
+	<div id="d1"></div>
+	
+	<pre>
+		ptag 생성
+		textNode 생성
+		button 생성
+		ptag.appendChild(textNode)
+		ptag.appendChild(button)	&lt;button type="button">삭제&lt;/button> => 삭제를 textNode로 주어도 된다.
+		div.appendChild(ptag)
+	</pre>
+	<input type="button" value="추가" onclick="proc3()">
+	<br><br>
+	<div id="d3"></div>
+</body>
+</html>

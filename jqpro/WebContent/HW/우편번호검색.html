@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	$.ajax({
+		url : '/jqpro/searchSido.do',
+		type : 'get',
+		dataType : 'json',
+		error : function(xhr){
+			alert("상태 : " + xhr.status);
+		},
+		success : function(res){
+			code="";
+			$.each(res, function(i, v){
+				code += "<option>"+ v.sido + "</option>";
+			}) 
+			
+			$('#sido').html(code);
+			$('#sido').trigger('change');
+		}
+	})
+	
+	$('#sido').change(function(){
+		sido_value = $('#sido').val();
+		
+		$.ajax({
+			url : '/jqpro/searchGugun.do',
+			type : 'get',
+			data : { "sido" : sido_value },
+			dataType : 'json',
+			error : function(xhr){
+				alert("상태 : " + xhr.status);
+			},
+			success : function(res){
+				code="";
+				$.each(res, function(i, v){
+					code += "<option>"+ v.gugun + "</option>";
+				})
+				
+				$('#gugun').html(code);
+				$('#gugun').trigger('change');
+			}
+		})
+	})
+	
+	$('#gugun').change(function(){
+		gugun_value = $('#gugun').val();
+		
+		$.ajax({
+			url : '/jqpro/searchDong.do',
+			type : 'get',
+			data : { "sido" : sido_value, "gugun" : gugun_value },
+			dataType : 'json',
+			error : function(xhr){
+				alert("상태 : " + xhr.status);
+			},
+			success : function(res){
+				code="";
+				$.each(res, function(i, v){
+					code += "<option>"+ v.dong + "</option>";
+				})
+				
+				$('#dong').html(code);
+				$('#dong').trigger('change');
+			}
+		})
+	})
+	
+	$('#dong').change(function(){
+		dong_value = $('#dong').val();
+		
+		$.ajax({
+			url : '/jqpro/searchZip1.do',
+			type : 'get',
+			data : { "sido" : sido_value, "gugun" : gugun_value, "dong" : dong_value },
+			dataType : 'json',
+			error : function(xhr){
+				alert("상태 : " + xhr.status);
+			},
+			success : function(res){
+				code = "";
+				$.each(res, function(i, v){
+// 					code += "<p>" + v.zipcode + "&emsp;" + v.addr + "&emsp;" + v.bunji +"</p>";
+					code += "<p>" + v.zipcode + "&emsp;" + v.addr +"</p>";
+				})
+				$('#d1').html(code);
+			}
+		})
+	})
+})
+</script>
+
+<style>
+select {
+	margin-left: 100px;
+}
+
+</style>
+</head>
+<body>
+	<pre>
+		
+	</pre>
+	<select id="sido"></select>
+	<select id="gugun"></select>
+	<select id="dong"></select>
+	<br><br>
+	<div id="d1"></div>
+	
+</body>
+</html>

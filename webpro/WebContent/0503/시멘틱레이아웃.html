@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+header, footer, nav, section, article{
+	border-radius: 30px;
+	box-sizing: border-box;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+header{
+	background: yellow;
+	height: 100px;
+	text-align: center;
+	padding-top: 3px;
+}
+
+nav{
+	width: calc(30% - 5px);
+	height: 300px;
+	background: lightpink;
+	float: left;
+}
+
+img{
+	width: 100px;
+	height: 70px;
+	margin-left: 60px;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:link{
+	color: white;
+}
+
+a:visited{
+	color: yellow;
+}
+
+section{
+	width: calc(68% - 5px);
+	height: 300px;
+	background: #AAE4E5;
+ 	position: absolute;
+	float: left;
+	left: 31%;
+	opacity:0.5;
+}
+
+article{
+	background: orange;
+ 	border: 2px dotted green;
+	z-index: -1;
+	margin: 20px;
+	padding: 10px;
+	width: calc(95% - 5px);
+}
+
+footer{
+	background: #9999E0;
+	clear: both;
+	padding: 10px;
+	text-align: center;
+	font-size: 10px; 
+}
+
+#p1{
+	font-size: 10px;
+}
+
+#p2{
+	font-size: 10px;
+	margin-left: 60px;
+}
+
+.a{
+	font-size: 10px;
+}
+
+h3{
+	margin-left: 10px; 
+}
+
+h4{
+	padding-top: 0px;
+}
+
+</style>
+</head>
+<body>
+	<header>
+		<h2>My Blog Page</h2>
+		<p id="p1">시멘틱 태그로 만들어진 페이지 입니다.</p>
+	</header>
+	<nav>
+		<h3>Links</h3>
+		<ul>
+			<li><a href="http://www.w3schools.com">w3schools</a></li>
+			<li><a href="http://www.naver.com">Naver</a></li>
+			<li><a href="http://www.daum.net">Daum</a></li>
+		</ul>
+		<img src="../images/spongebob.png" alt="spongebob.png">
+		<p id="p2">스폰지밥</p>
+	</nav>
+	<section>
+		<article>
+			<h4>Semantic Tags</h4>
+			<p class="a">시멘틱 요소(Sementic elements)들은 브라우저에게 요소의 의미나 목적을 명확하게 알려주는 요소이다. 레이아웃을 만들 때 쓰는 것. 의미가 있는 요소라면 div보다는 시멘틱 태그를 사용해준다.</p>
+		</article>
+		<article>
+			<h4>div와 span</h4>
+			<p class="a">div은 "divide"의 약자로써 페이지를 논리적인 섹션으로 분리하는데 사용되는 태그이다. span요소는 인라인 요소로서 텍스트를 위한 컨테이너로 사용할 수 있다.</p>
+		</article>
+	</section>
+	<footer>Copyright (c)2019 Hong</footer>
+</body>
+</html>

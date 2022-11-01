@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+function proc1(){
+	res = "protocol = " + location.protocol + "<br>";
+	res += "hostname = " + location.hostname + "<br>";
+	res += "host = " + location.host + "<br>";
+	res += "port = " + location.port + "<br>";
+	res += "pathname = " + location.pathname + "<br>";
+	res += "href = " + location.href+ "<br>";
+	
+	document.getElementById('d1').innerHTML = res;
+}
+
+function proc2(){
+	
+// 	location.href = "test.jsp";
+	location.href = "http://localhost/webpro/0504/scripttest1.html";
+	
+	
+	
+}
+
+function proc3(){
+	
+	location.href="http://localhost/webpro/0504/scripttest2.html";
+}
+</script>
+</head>
+<body>
+	<pre>
+		href
+		protocol
+		hostname
+		host
+		port
+		pathname
+	</pre>
+	<input type="button" value="확인" onclick="proc1()">
+	<br><br>
+	<div id="d1"></div>
+	
+	<pre>
+		href
+		버튼을 클릭시 특정 페이지 이동
+		a태그를 이용해서 특정 페이지로 이동
+		a태그를 이용해서 자바스크립트 함수를 호출해서 특정 페이지로 이동
+		get방식으로 특정페이지로 이동
+	</pre>
+	<input type="button" value="확인" onclick="proc2()">
+	<input type="button" value="확인" onclick="location.href='windowOpen.html'">	
+	<br><br>
+	
+	<a href="javascript:proc3()">공지사항목록</a>
+	<a href="#" onclick="proc3()">공지사항목록</a>
+	<br><br>
+	<input type="button" onclick="location.href='test.jsp?name=korea&&id=a001'" value="확인">	<!-- ?name=korea&&id=a001안에는 공백이 없어야 한다. --> 
+	
+	
+	
+	
+	
+	<div id="d2"></div>
+	
+</body>
+</html>

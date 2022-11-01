@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script src="../js/jquery-3.6.0.min.js"></script>
+
+<script>
+$(function(){
+	
+	xhr = new XMLHttpRequest();
+	
+	
+// 	$(document).on('click', '#sync', function(){}) // => sync는 이미 만들어져 있는 버튼이기 때문에 bind 방식을 사용한다.
+	$('#sync').on('click', function(){
+		location.href = "test.jsp?id=a001&name=korea";
+	})
+	
+	$('#async').on('click', function(){
+		
+		//입력한 내용 가져오기
+		idvalue = $('#id').val().trim();		//공백 없애는거 안하면 나중에 공백이 들어가서 문제가 생길 수 있음
+		namevalue = $('#name').val().trim();
+		
+		//요청
+		xhr.open('get', 'test.jsp?id=' + idvalue + '&name=' + namevalue, true);
+// 		xhr.open('get', "'test.jsp?id=" + idvalue + "&name=" + namevalue + "'", true);
+		xhr.send();
+		
+		//응답
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				res = this.responseText;
+				
+				$('#d1').html(res);
+			}
+		}
+	})
+	
+	$('#asyncp').on('click', function(){
+		//입력한 값 가져오기
+		idvalue = $('#id').val().trim();
+		namevalue = $('#name').val().trim();
+		
+		//요청
+		xhr.open('post', 'test.jsp?', true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send('id=' + idvalue + '&name=' + namevalue);
+		
+		//응답
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				res = this.responseText;
+				
+				$('#d1').html(res);
+			}
+		}
+	})
+})
+</script>
+</head>
+<body>
+	<pre>
+		xhr = new XMLHttpRequest()객체 생성
+		//요청
+		xhr.open('get', '서버페이지?id=a001&name=korea', true); <!-- 비동기가 된다. -->
+		xhr.send();		->
+		//요청시 처리되는
+		readystate
+		0 : 요청전, 1 : 요청페이지 로드, 2 : 요청페이지 로드 완료, 3 : 요청페이지 처리중, 4 : 요청페이지 처리 완료 <!-- 요청처리가 완료되어야 값을 받을 수 있다. -->
+		
+		status
+		404: 페이지를 찾을 수 없음, 304 : 요청 형식오류, 500 : 코딩오류, 200 : 성공
+		
+		xhr.open('post', '서버페이지', true);
+		xhr.setRequestHeader('키', '값')
+		xhr.send("?id=a001&name=korea");
+		
+		//응답
+		xhr.onreadstatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				this.responseText - json형식으로 parsing한다.
+				this.responseXML
+			}
+		}
+		
+	</pre>
+	<input type="button" value="일반요청get-script" id="sync">
+	<input type="button" value="일반요청get-onclick" onclick="location.href='test.jsp?id=a001&name=korea'"><br>
+	<br>
+	
+	<form action="test.jsp" method="post">
+		<input type="submit" value="일반요청post"><br>
+		아이디 <input type="text" name="id"><br>
+		이름 <input type="text" name="name"><br>
+	</form>
+	<br>
+	<hr>
+	
+	<form action="test.jsp" method="post">
+		<input type="button" value="비동기요청get" id="async">
+		<input type="button" value="비동기요청post" id="asyncp"><br>
+		
+		아이디 <input type="text" id="id"><br>
+		이름 <input type="text" id="name"><br>
+		
+	</form>
+	
+	<br><br>
+	<div id="d1"></div>
+	
+</body>
+</html>

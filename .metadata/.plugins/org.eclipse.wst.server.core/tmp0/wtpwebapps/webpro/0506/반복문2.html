@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	div{
+		border: 1px dotted green;
+		height: 420px;
+		padding: 5px;
+		overflow: auto;
+	}
+	table{
+		border: 3px solid lime;
+	}
+	
+	td{
+		text-align: center;
+		width: 40px;
+		height: 40px;
+	}
+</style>
+
+<script>
+	guguTable = () =>{
+		
+		res = "<table border = '1'>";
+		
+		for(i=1; i<=9; i++){
+			res += "<tr>";
+			for(j=1; j<=9; j++){
+				res += "<td>" + i*j + "</td>";
+			}
+			res += "</tr>";
+		}
+		res += "</table>";
+		
+		out = document.getElementById('d1');
+		out.innerHTML = res;
+	}
+	
+	guguPro = () => {
+		str ="";
+		
+		while(true){
+			//입력
+			dan = prompt("단 입력", "종료하려면 0 입력");
+			
+			if(dan == 0) break;
+			
+				for(i=1; i<=9; i++){
+					str += `${dan} * ${i} = ${dan * i} <br>`;
+				}
+				
+				str += `<br>`;
+		}
+		out = document.getElementById("d2");
+		out.innerHTML = str;
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="확인" onclick="guguTable()">
+	<br><br>
+	<div id="d1"></div>
+	
+	<pre>
+		수를 입력 - prompt()를 이용
+		입력한 수의 구구단을 출력
+		반복적으로 수행 - 0을 입력받으면 종료
+	</pre>
+	<input type="button" value="확인" onclick="guguPro()">
+	<br><br>
+	<div id="d2"></div>
+	
+</body>
+</html>

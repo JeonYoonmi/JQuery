@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<style>
+</style>
+
+<script>
+	function calc(){
+		
+		x = prompt("정수를 입력하세요1", "1~100");
+		y = prompt("정수를 입력하세요2", "1~100");
+// 		x = window.prompt("정수를 입력하세요1", "1~100");
+// 		y = window.prompt("정수를 입력하세요2", "1~100");
+		
+		hap = parseInt(x) + parseInt(y); // window.parseInt(x) + window.parseInt(y) => 브라우저에서 최상위에 있는 객체 : window (object 느낌?) => window는 생략해서 쓸 수 있음.
+		
+		//id=d1으로 접근
+		out = document.getElementById('d1');
+		
+		//출력내용
+		str = "입력1 : " + x + "<br>";
+		str += "입력2 : " + y + "<br>";
+		str += "합 : " + hap + "<br>";
+			
+		out.innerHTML = str;
+	}
+	
+	function calc2(){
+		input1 = parseInt(prompt("정수1"));
+		input2 = parseInt(prompt("정수2"));
+		op = prompt("연산자 입력", "+, -, *, /");
+		
+		//비교
+		if(op == "+"){
+			res = input1 + input2;		
+		}else if(op == '-'){
+			res = input1 - input2;		
+		}else if(op == "*"){
+			res = input1 * input2;		
+		}else if(op == "/"){
+			res = input1 / input2;		//자바에서는 int끼리 나누면 int형으로 나오지만 script는 정수형으로 나온다.
+		}
+		
+		//id=d2에 출력한다.
+		out = document.getElementById('d2');
+		
+		//출력내용
+		str = "정수1 : " + input1 + "<br>";
+		str += "연산자 : " + op + "<br>";
+		str += "정수2 : " + input2 + "<br><br>";
+// 		str += input1 + " " + op + " " + input2 + " " + "=" + " " + res + "<br>";
+		str += `${input1} ${op} ${input2} = ${res} <br>`
+		
+		out.innerHTML = str;
+	}
+</script>
+</head>
+<body>
+	<pre>
+		prompt() 함수를 이용하여 입력하고 출력한다.
+		출력은 id=d1인 div요소에 출력한다. 
+	</pre>
+	<input type="button" value="확인" onclick="calc()"> <br><br>
+	<div id="d1"></div>
+	
+	<pre>
+		숫자 2개와 연산자 1개를 입력 받아 연산자에 맞는 계산결과를 출력하는 프로그램
+		입력은 prompt를 이용하고
+		출력은 div에 출력한다.	
+	</pre>
+	<input type="button" value="확인" onclick="calc2()"><br><br>
+	<div id="d2"></div>
+	
+	<pre>
+		str += input1 + " " + op + " " + input2 + " " + "=" + " " + res + "&lt;br>";
+		
+		템플릿 문자열 - 백틱(`)을 이용한 문장
+		문자열과 변수를 간단히 표현 - 변수표현 : ${변수}
+		str += `${input1} ${op} ${input2} = ${res} &lt;br>
+	</pre>
+</body>
+</html>

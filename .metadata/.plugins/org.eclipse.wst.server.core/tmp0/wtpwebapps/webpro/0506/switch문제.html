@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+
+<script>
+	function calc(){
+		//입력
+		su1 = parseInt(prompt("정수1"));
+		su2 = parseInt(prompt("정수2"));
+		
+		op = prompt("연산자 입력", "+, -, *, /");
+		
+		//비교 계산
+		switch (op) {
+		case "+":
+			res = su1 + su2;
+			break;
+		case "-":
+			res = su1 - su2;
+			break;
+			
+		case "*":
+			res = su1 * su2;
+			break;
+			
+		case "/":
+			res = su1 / su2;
+			break;
+		}
+		
+		out = document.getElementById("d1");
+		
+		//출력내용
+		str = `첫번째 수 : ${su1} <br>`;
+		str += `두번째 수 : ${su2} <br>`;
+		str += `연산자 : ${op} <br><br>`;
+		str += `결과 :  ${su1} ${op} ${su2} = ${res}`
+		
+		//출력
+		out.innerHTML = str;
+	}
+	
+	function calc2(){
+		score = prompt("점수를 입력", "0~100");
+		s = parseInt(score / 10);
+		
+		switch (s) {
+		case 10: case 9:
+			res = "수";
+			break;
+		case 8:
+			res = "우";
+			break;
+		case 7:
+			res = "미";
+			break;
+		case 6:
+			res = "양";
+			break;
+		default:
+			res = "가";
+			break;
+		}
+		
+		out = document.getElementById("d2");
+		
+		str = `점수 : ${score} <br>`;
+		str += `학점 : ${res}`;
+		
+		out.innerHTML = str;
+	}
+	
+// 	function calc3(){ }
+// 	calc3 = function() { }
+	
+	//람다 함수 - 화살표를 이용한 함수
+	calc3 = () =>{
+		let first = prompt("첫번 째 사람", "가위, 바위, 보");	//const 한 번 값이 정해지고 난 후에 바뀌지 않을 때 사용할 수 있다.
+		let second = prompt("두번 째 사람", "가위, 바위, 보");
+		
+		if(first == second){
+			res = "비김";
+		}else if(first == "가위" && second == "보" || first == "바위" && second == "가위" || first == "보" && second == "바위"){
+			res = "첫번 째 사람이 이김";
+		}else{
+			res = "두번 째 사람이 이김";
+		}
+		
+		/*
+			if(first == "가위"){
+				if(second == "가위"){
+					res ="비김";
+				}else if(second == "바위"){
+					res = "두번째 사람 이김";
+				}else{
+					res = "첫번 째 사람 이김";
+				}
+			}
+		*/
+		
+		//출력 내용
+		str = `첫번 째 사람 : ${first} <br>`
+		str += `두번 째 사람 : ${second} <br>`
+		str += `결과 : ${res}`
+		
+		//출력
+		out = document.getElementById("d3");
+		out.innerHTML = str;
+	}
+</script>
+</head>
+<body>
+	<pre>
+		숫자 2개와 연산자 1개를 입력 받아 연산자에 맞는 계산결과를 출력하는 프로그램
+		입력은 prompt를 이용하고
+		출력은 div에 출력한다.	
+	</pre>
+	
+	<input type="button" value="확인" onclick="calc()"><br><br>
+	<div id="d1"></div>
+	
+	<pre>
+		점수를 입력(1~100) - prompt()
+		학점을 계산하여 출력 - div
+		90~100 - 수
+		80~89 - 우
+		70~79 - 미
+		60~69 - 양
+		0~59 - 가
+	</pre>
+	
+	<input type="button" value="확인" onclick="calc2()"><br><br>
+	<div id="d2"></div>
+	
+	<pre>
+	두 사람의 가위, 바위, 보를 입력 받아 승자를 출력하는 프로그램
+	</pre>
+	
+	<input type="button" value="확인" onclick="calc3()"><br><br>
+	<div id="d3"></div>
+	
+</body>
+</html>
